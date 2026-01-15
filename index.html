@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオ | IT専門学生</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav class="navbar">
+        <div class="nav-brand">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#home">ホーム</a></li>
+            <li><a href="#about">自己紹介</a></li>
+            <li><a href="#skills">スキル</a></li>
+            <li><a href="#projects">プロジェクト</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">こんにちは、<span class="highlight">山田太郎</span>です</h1>
+            <p class="hero-subtitle">IT専門学校で学ぶWebエンジニアの卵</p>
+            <a href="#projects" class="btn btn-primary">作品を見る</a>
+        </div>
+        <div class="hero-image">
+            <div class="code-block">
+                <pre>
+<code><span class="keyword">const</span> <span class="variable">developer</span> = {
+    <span class="property">name</span>: <span class="string">"山田太郎"</span>,
+    <span class="property">school</span>: <span class="string">"IT専門学校"</span>,
+    <span class="property">passion</span>: <span class="string">"Web開発"</span>,
+    <span class="property">goal</span>: <span class="string">"世界を変える"</span>
+};</code>
+                </pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- 自己紹介セクション -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">自己紹介</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="profile-placeholder">
+                        <span>👨‍💻</span>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>IT専門学校 2年生</h3>
+                    <p>
+                        プログラミングが大好きな専門学生です。
+                        Web開発を中心に学習しており、フロントエンドからバックエンドまで
+                        幅広く技術を身につけています。
+                    </p>
+                    <p>
+                        新しい技術を学ぶことが好きで、常に最新のトレンドを追いかけています。
+                        将来はフルスタックエンジニアとして活躍することを目指しています。
+                    </p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <span class="info-label">学校</span>
+                            <span class="info-value">〇〇IT専門学校</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">学科</span>
+                            <span class="info-value">情報システム科</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">卒業予定</span>
+                            <span class="info-value">2027年3月</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- スキルセクション -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">スキル</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>HTML/CSS</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="85"></div>
+                    </div>
+                    <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>JavaScript</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="75"></div>
+                    </div>
+                    <span class="skill-percent">75%</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🐍</div>
+                    <h3>Python</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="70"></div>
+                    </div>
+                    <span class="skill-percent">70%</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>SQL</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="65"></div>
+                    </div>
+                    <span class="skill-percent">65%</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚛️</div>
+                    <h3>React</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="60"></div>
+                    </div>
+                    <span class="skill-percent">60%</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🐙</div>
+                    <h3>Git</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="70"></div>
+                    </div>
+                    <span class="skill-percent">70%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- プロジェクトセクション -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">プロジェクト</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">📱</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>タスク管理アプリ</h3>
+                        <p>ReactとFirebaseを使用したタスク管理Webアプリケーション</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">デモ</a>
+                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">🛒</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>ECサイト</h3>
+                        <p>PHPとMySQLで作成したシンプルなECサイト</p>
+                        <div class="project-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Bootstrap</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">デモ</a>
+                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">🤖</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>天気予報Bot</h3>
+                        <p>PythonとAPIを使用した天気予報LINE Bot</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">LINE API</span>
+                            <span class="tag">Flask</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">デモ</a>
+                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>example@email.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <h4>所在地</h4>
+                            <p>東京都</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🔗</span>
+                        <div>
+                            <h4>SNS</h4>
+                            <div class="social-links">
+                                <a href="#" class="social-link">GitHub</a>
+                                <a href="#" class="social-link">Twitter</a>
+                                <a href="#" class="social-link">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">お名前</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">メッセージ</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">送信する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 山田太郎. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
