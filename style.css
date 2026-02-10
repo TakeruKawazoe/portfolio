@@ -227,6 +227,26 @@ body {
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.2), inset 0 0 20px rgba(0, 229, 255, 0.05);
 }
 
+.hero-name-main {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    display: block;
+}
+
+.hero-role {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.hero-name-jp {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
 .hero-image {
     flex: 1;
     display: flex;
@@ -445,8 +465,8 @@ section {
 }
 
 .about-text strong {
-    color: var(--primary-color);
-    text-shadow: 0 0 10px var(--primary-glow);
+    color: inherit;
+    text-shadow: none;
 }
 
 .about-info {
