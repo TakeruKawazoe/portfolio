@@ -24,13 +24,130 @@ const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.15)';
+        navbar.style.background = 'rgba(10, 14, 23, 0.98)';
+        navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+        navbar.style.background = 'rgba(10, 14, 23, 0.9)';
+        navbar.style.boxShadow = 'none';
     }
 });
+
+// ========================================
+// 多角形ネットワーク背景アニメーション
+// ========================================
+function initPolygonNetwork() {
+    const canvas = document.getElementById('polygonCanvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+    
+    // キャンバスサイズ設定
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // パーティクル（頂点）クラス
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.8;
+            this.vy = (Math.random() - 0.5) * 0.8;
+            this.radius = Math.random() * 2 + 1;
+        }
+        
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            
+            // 境界での反射
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0, 229, 255, 0.8)';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#00e5ff';
+            ctx.fill();
+        }
+    }
+    
+    // パーティクル初期化
+    function initParticles() {
+        particles = [];
+        const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
+        for (let i = 0; i < Math.min(particleCount, 100); i++) {
+            particles.push(new Particle());
+        }
+    }
+    
+    initParticles();
+    
+    // ライン描画（多角形ネットワーク）
+    function drawLines() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 150) {
+                    const opacity = (1 - distance / 150) * 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    
+                    // グラデーションライン
+                    const gradient = ctx.createLinearGradient(
+                        particles[i].x, particles[i].y,
+                        particles[j].x, particles[j].y
+                    );
+                    gradient.addColorStop(0, `rgba(0, 229, 255, ${opacity})`);
+                    gradient.addColorStop(1, `rgba(0, 255, 136, ${opacity})`);
+                    
+                    ctx.strokeStyle = gradient;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+    
+    // アニメーションループ
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // パーティクル更新と描画
+        particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+        });
+        
+        // ライン描画
+        ctx.shadowBlur = 0;
+        drawLines();
+        
+        animationId = requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    // リサイズ時にパーティクル再初期化
+    window.addEventListener('resize', () => {
+        initParticles();
+    });
+}
+
+initPolygonNetwork();
 
 // ========================================
 // スキルバーのアニメーション
@@ -60,7 +177,7 @@ skillsObserver.observe(skillsSection);
 // ========================================
 // フェードインアニメーション
 // ========================================
-const fadeElements = document.querySelectorAll('.skill-card, .project-card, .about-content, .contact-content');
+const fadeElements = document.querySelectorAll('.skill-category, .project-card, .about-content, .contact-card, .vision-card');
 
 const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -74,30 +191,6 @@ const fadeObserver = new IntersectionObserver((entries) => {
 fadeElements.forEach(el => {
     el.classList.add('hidden');
     fadeObserver.observe(el);
-});
-
-// ========================================
-// お問い合わせフォーム
-// ========================================
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-    };
-    
-    // 実際のプロジェクトではここでAPIにデータを送信
-    console.log('フォームデータ:', formData);
-    
-    // 成功メッセージを表示
-    alert('お問い合わせありがとうございます！\nメッセージを受け取りました。');
-    
-    // フォームをリセット
-    contactForm.reset();
 });
 
 // ========================================
@@ -146,7 +239,7 @@ const typeWriter = (element, text, speed = 100) => {
 const currentYear = new Date().getFullYear();
 const footerText = document.querySelector('.footer p');
 if (footerText) {
-    footerText.innerHTML = `&copy; ${currentYear} 山田太郎. All Rights Reserved.`;
+    footerText.innerHTML = `&copy; ${currentYear} 川添 偉生 (Takeru Kawazoe). All Rights Reserved.`;
 }
 
 // ========================================

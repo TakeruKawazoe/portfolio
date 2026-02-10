@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポートフォリオ | IT専門学生</title>
+    <title>川添 偉生 | Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 背景アニメーション -->
+    <div class="bg-animation">
+        <canvas id="polygonCanvas"></canvas>
+        <div class="bg-gradient"></div>
+    </div>
+
     <!-- ナビゲーション -->
     <nav class="navbar">
-        <div class="nav-brand">Portfolio</div>
+        <div class="nav-brand">Takeru.K</div>
         <ul class="nav-links">
-            <li><a href="#home">ホーム</a></li>
-            <li><a href="#about">自己紹介</a></li>
-            <li><a href="#skills">スキル</a></li>
-            <li><a href="#projects">プロジェクト</a></li>
-            <li><a href="#contact">お問い合わせ</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Works</a></li>
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="hamburger">
             <span></span>
@@ -28,18 +35,21 @@
     <!-- ヒーローセクション -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">こんにちは、<span class="highlight">山田太郎</span>です</h1>
-            <p class="hero-subtitle">IT専門学校で学ぶWebエンジニアの卵</p>
-            <a href="#projects" class="btn btn-primary">作品を見る</a>
+            <h1 class="hero-title">こんにちは、<span class="highlight">川添 偉生</span>です</h1>
+            <p class="hero-subtitle">開発スキル × インフラ視点。現場を支える、骨太なSEを目指して</p>
+            <p class="hero-badge">🎓 JANOG若者支援プログラム参加者</p>
+            <a href="#projects" class="btn btn-primary">実績を見る</a>
         </div>
         <div class="hero-image">
             <div class="code-block">
                 <pre>
 <code><span class="keyword">const</span> <span class="variable">developer</span> = {
-    <span class="property">name</span>: <span class="string">"山田太郎"</span>,
-    <span class="property">school</span>: <span class="string">"IT専門学校"</span>,
-    <span class="property">passion</span>: <span class="string">"Web開発"</span>,
-    <span class="property">goal</span>: <span class="string">"世界を変える"</span>
+    <span class="property">name</span>: <span class="string">"川添 偉生"</span>,
+    <span class="property">school</span>: <span class="string">"日本工学院八王子専門学校 AIシステムコース"</span>,
+    <span class="comment">// 将来の目標: 下流から上流まで担えるエンジニア</span>
+    <span class="property">career_goal</span>: <span class="string">"Full-Stack SE (SIer)"</span>,
+    <span class="comment">// 現在の関心: 開発が軸だが、インフラの重要性も痛感中</span>
+    <span class="property">interest</span>: [<span class="string">"System Development"</span>, <span class="string">"Infrastructure Perspective"</span>],
 };</code>
                 </pre>
             </div>
@@ -49,36 +59,41 @@
     <!-- 自己紹介セクション -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">自己紹介</h2>
+            <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <div class="profile-placeholder">
-                        <span>👨‍💻</span>
-                    </div>
+                    <img src="images/profile.jpg" alt="川添 偉生" class="profile-photo">
                 </div>
                 <div class="about-text">
-                    <h3>IT専門学校 2年生</h3>
+                    <h3>AIシステム専攻の専門学生</h3>
                     <p>
-                        プログラミングが大好きな専門学生です。
-                        Web開発を中心に学習しており、フロントエンドからバックエンドまで
-                        幅広く技術を身につけています。
+                        日本工学院八王子専門学校でAI・システム開発を学んでいます。
+                        インターンシップを通じて実務経験を積み、業務効率化ツールの開発・運用に携わってきました。
                     </p>
                     <p>
-                        新しい技術を学ぶことが好きで、常に最新のトレンドを追いかけています。
-                        将来はフルスタックエンジニアとして活躍することを目指しています。
+                        インターンを経験する中で、<strong>インフラやセキュリティ</strong>にも強い関心を持つようになりました。
+                        そのため、将来はインフラの知見も活かしつつ、実装（下流）から設計（上流）まで一貫して担えるSEを目指しています。
                     </p>
                     <div class="about-info">
                         <div class="info-item">
+                            <span class="info-label">生年月日</span>
+                            <span class="info-value">2005/10/28（満20歳）</span>
+                        </div>
+                        <div class="info-item">
                             <span class="info-label">学校</span>
-                            <span class="info-value">〇〇IT専門学校</span>
+                            <span class="info-value">日本工学院八王子専門学校</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">学科</span>
-                            <span class="info-value">情報システム科</span>
+                            <span class="info-value">ITスペシャリスト科（AIシステム専攻）</span>
                         </div>
                         <div class="info-item">
-                            <span class="info-label">卒業予定</span>
-                            <span class="info-value">2027年3月</span>
+                            <span class="info-label">興味分野</span>
+                            <span class="info-value">AI・自動化・インフラ・セキュリティ・ネットワーク</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">趣味</span>
+                            <span class="info-value">筋トレ</span>
                         </div>
                     </div>
                 </div>
@@ -89,55 +104,49 @@
     <!-- スキルセクション -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">スキル</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🌐</div>
-                    <h3>HTML/CSS</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="85"></div>
-                    </div>
-                    <span class="skill-percent">85%</span>
+            <h2 class="section-title">Skills</h2>
+            
+            <!-- 言語 -->
+            <div class="skill-category">
+                <h3 class="skill-category-title">💻 Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Google Apps Script</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">⚡</div>
-                    <h3>JavaScript</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="75"></div>
-                    </div>
-                    <span class="skill-percent">75%</span>
+            </div>
+            
+            <!-- ツール・環境 -->
+            <div class="skill-category">
+                <h3 class="skill-category-title">🛠️ Tools & Environment</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Git / GitHub</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Slack API</span>
+                    <span class="skill-tag">PowerApps</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🐍</div>
-                    <h3>Python</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="70"></div>
-                    </div>
-                    <span class="skill-percent">70%</span>
+            </div>
+            
+            <!-- クラウド・インフラ -->
+            <div class="skill-category">
+                <h3 class="skill-category-title">☁️ Cloud & Infrastructure</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Google Sheets API</span>
+                    <span class="skill-tag">Google Cloud</span>
+                    <span class="skill-tag">ネットワーク基礎</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🗄️</div>
-                    <h3>SQL</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="65"></div>
-                    </div>
-                    <span class="skill-percent">65%</span>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">⚛️</div>
-                    <h3>React</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="60"></div>
-                    </div>
-                    <span class="skill-percent">60%</span>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🐙</div>
-                    <h3>Git</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="70"></div>
-                    </div>
-                    <span class="skill-percent">70%</span>
+            </div>
+            
+            <!-- 資格 -->
+            <div class="skill-category">
+                <h3 class="skill-category-title">📚 Certification</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">基本情報技術者試験</span>
+                    <span class="skill-tag">英検準二級</span>
+                    <span class="skill-tag learning">応用情報技術者試験（勉強中）</span>
                 </div>
             </div>
         </div>
@@ -146,41 +155,42 @@
     <!-- プロジェクトセクション -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">プロジェクト</h2>
+            <h2 class="section-title">Works / Projects</h2>
+            <p class="section-subtitle">インターンで実務経験を積み、業務改善に貢献したプロジェクトです</p>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="project-placeholder">📱</div>
+                        <div class="project-placeholder">⏰</div>
                     </div>
                     <div class="project-content">
-                        <h3>タスク管理アプリ</h3>
-                        <p>ReactとFirebaseを使用したタスク管理Webアプリケーション</p>
+                        <span class="project-badge">🏢 インターン実績</span>
+                        <h3>半自動勤怠管理システム</h3>
+                        <p>
+                            <strong>課題:</strong> 手作業での勤怠集計に毎日時間がかかっていた<br>
+                            <strong>解決:</strong> Slackの打刻をGoogle Sheetsに自動転記し、集計作業を大幅に削減
+                        </p>
                         <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Firebase</span>
-                            <span class="tag">CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">デモ</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                            <span class="tag">Slack API</span>
+                            <span class="tag">Google Sheets</span>
+                            <span class="tag">GAS</span>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="project-placeholder">🛒</div>
+                        <div class="project-placeholder">🔔</div>
                     </div>
                     <div class="project-content">
-                        <h3>ECサイト</h3>
-                        <p>PHPとMySQLで作成したシンプルなECサイト</p>
+                        <span class="project-badge">🏢 インターン実績</span>
+                        <h3>QAチャンネルリマインドBot</h3>
+                        <p>
+                            <strong>課題:</strong> Slackでの質問が放置されがちだった<br>
+                            <strong>解決:</strong> 未回答の質問を自動検出し、担当者にリマインドを送信するボットを開発
+                        </p>
                         <div class="project-tags">
-                            <span class="tag">PHP</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">Bootstrap</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">デモ</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                            <span class="tag">Slack API</span>
+                            <span class="tag">GAS</span>
+                            <span class="tag">JavaScript</span>
                         </div>
                     </div>
                 </div>
@@ -189,16 +199,16 @@
                         <div class="project-placeholder">🤖</div>
                     </div>
                     <div class="project-content">
-                        <h3>天気予報Bot</h3>
-                        <p>PythonとAPIを使用した天気予報LINE Bot</p>
+                        <span class="project-badge">💻 企業向けアプリ</span>
+                        <h3>意思決定支援アプリ</h3>
+                        <p>
+                            <strong>概要:</strong> PowerAppsを使用して、データに基づく意思決定をサポートするUIを設計・開発<br>
+                            <strong>ポイント:</strong> 新しいローコードツールへの適応力とUI/UX設計を経験
+                        </p>
                         <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">LINE API</span>
-                            <span class="tag">Flask</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">デモ</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                            <span class="tag">PowerApps</span>
+                            <span class="tag">Microsoft 365</span>
+                            <span class="tag">UI/UX</span>
                         </div>
                     </div>
                 </div>
@@ -206,53 +216,56 @@
         </div>
     </section>
 
-    <!-- お問い合わせセクション -->
+    <!-- 将来の展望セクション -->
+    <section id="vision" class="vision">
+        <div class="container">
+            <h2 class="section-title">Vision</h2>
+            <div class="vision-content">
+                <div class="vision-card">
+                    <div class="vision-icon">🚀</div>
+                    <h3>確かな技術を持った、信頼されるSEになりたい</h3>
+                    <p>
+                        AI・システム開発を専攻していますが、インターンを通じて「システムが動く基盤」である<strong>インフラ技術の奥深さ</strong>を実感しました。
+                    </p>
+                    <p>
+                        将来は<strong>SIerの現場</strong>に入り、まずは実装工程で確かな技術力を身につけ、
+                        ゆくゆくはシステム全体の設計や提案まで担えるようになりたいと考えています。
+                    </p>
+                    <p>
+                        JANOG若者支援プログラムを通じて、普段の開発だけでは得られない<strong>インフラ・ネットワークの知見</strong>を吸収し、
+                        エンジニアとしての幅を広げたいです！
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 連絡先セクション -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">お問い合わせ</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-icon">📧</span>
-                        <div>
-                            <h4>Email</h4>
-                            <p>example@email.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <div>
-                            <h4>所在地</h4>
-                            <p>東京都</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">🔗</span>
-                        <div>
-                            <h4>SNS</h4>
-                            <div class="social-links">
-                                <a href="#" class="social-link">GitHub</a>
-                                <a href="#" class="social-link">Twitter</a>
-                                <a href="#" class="social-link">LinkedIn</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">お名前</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">メールアドレス</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">メッセージ</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-full">送信する</button>
-                </form>
+            <h2 class="section-title">Contact / Socials</h2>
+            <p class="section-subtitle">お気軽にご連絡ください！</p>
+            <div class="contact-cards">
+                <a href="https://github.com/TakeruKawazoe" target="_blank" class="contact-card">
+                    <span class="contact-card-icon">🐙</span>
+                    <h4>GitHub</h4>
+                    <p>@TakeruKawazoe</p>
+                </a>
+                <a href="https://x.com/takemaru_031028?s=21" target="_blank" class="contact-card">
+                    <span class="contact-card-icon">🐦</span>
+                    <h4>X (Twitter)</h4>
+                    <p>@takemaru_031028</p>
+                </a>
+                <a href="https://www.instagram.com/takeru.1028?igsh=bDhuYXA5MXZzdXFk&utm_source=qr" target="_blank" class="contact-card">
+                    <span class="contact-card-icon">📸</span>
+                    <h4>Instagram</h4>
+                    <p>@takeru.1028</p>
+                </a>
+                <a href="https://line.me/ti/p/zw987L6iPw" target="_blank" class="contact-card">
+                    <span class="contact-card-icon">💬</span>
+                    <h4>LINE</h4>
+                    <p>友だち追加</p>
+                </a>
             </div>
         </div>
     </section>
@@ -260,7 +273,7 @@
     <!-- フッター -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 山田太郎. All Rights Reserved.</p>
+            <p>&copy; 2026 川添 偉生 (Takeru Kawazoe). All Rights Reserved.</p>
         </div>
     </footer>
 
