@@ -583,11 +583,20 @@ section {
 }
 
 .company-icon {
-    font-size: 2.5rem;
-    background: rgba(0, 229, 255, 0.1);
-    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
     border-radius: 15px;
     border: 1px solid var(--border-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
 }
 
 .internship-info h3 {
