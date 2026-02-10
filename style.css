@@ -557,6 +557,82 @@ section {
 }
 
 /* ========================================
+   インターンシップセクション
+======================================== */
+.internship {
+    background: transparent;
+}
+
+.internship-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glow);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--card-glow);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.internship-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-glow);
+}
+
+.company-icon {
+    font-size: 2.5rem;
+    background: rgba(0, 229, 255, 0.1);
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid var(--border-glow);
+}
+
+.internship-info h3 {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.company-name {
+    color: var(--text-light);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.company-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.company-link:hover {
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+.internship-content h4 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.internship-content p {
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.internship-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================
    プロジェクトセクション
 ======================================== */
 .projects {
