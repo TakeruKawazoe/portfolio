@@ -258,9 +258,9 @@ body {
     border: 1px solid var(--border-glow);
     border-radius: 15px;
     padding: 30px;
-    max-width: 450px;
+    max-width: 500px;
     position: relative;
-    overflow: hidden;
+    overflow-x: auto;
     box-shadow: var(--card-glow);
 }
 
@@ -281,9 +281,10 @@ body {
 
 .code-block code {
     font-family: 'Consolas', 'Monaco', monospace;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     line-height: 1.8;
     color: var(--text-color);
+    white-space: pre;
 }
 
 .code-block .keyword {
@@ -723,8 +724,8 @@ section {
 }
 
 .vision-card strong {
-    color: var(--primary-color);
-    text-shadow: 0 0 10px var(--primary-glow);
+    color: inherit;
+    text-shadow: none;
 }
 
 /* ========================================
