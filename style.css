@@ -39,6 +39,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -67,6 +68,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
+    max-width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-light);
@@ -138,6 +140,8 @@ body {
     padding: 100px 50px;
     position: relative;
     background: var(--bg-color);
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .hero-content {
@@ -223,7 +227,8 @@ body {
     font-size: 0.85rem;
     line-height: 1.8;
     color: var(--text-color);
-    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-all;
 }
 
 .code-block .keyword {
@@ -296,6 +301,8 @@ body {
 section {
     padding: 100px 50px;
     position: relative;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 section:nth-of-type(even) {
@@ -747,10 +754,13 @@ section:nth-of-type(odd) {
 
     .hero-image {
         width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .code-block {
         max-width: 100%;
+        width: 100%;
     }
 
     .about-content {
@@ -776,7 +786,7 @@ section:nth-of-type(odd) {
     }
 
     .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     section {
