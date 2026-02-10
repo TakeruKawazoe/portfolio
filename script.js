@@ -24,130 +24,13 @@ const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(10, 14, 23, 0.98)';
-        navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
     } else {
-        navbar.style.background = 'rgba(10, 14, 23, 0.9)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
         navbar.style.boxShadow = 'none';
     }
 });
-
-// ========================================
-// 多角形ネットワーク背景アニメーション
-// ========================================
-function initPolygonNetwork() {
-    const canvas = document.getElementById('polygonCanvas');
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-    
-    // キャンバスサイズ設定
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
-    // パーティクル（頂点）クラス
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * 0.8;
-            this.vy = (Math.random() - 0.5) * 0.8;
-            this.radius = Math.random() * 2 + 1;
-        }
-        
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-            
-            // 境界での反射
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-        }
-        
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(0, 229, 255, 0.8)';
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = '#00e5ff';
-            ctx.fill();
-        }
-    }
-    
-    // パーティクル初期化
-    function initParticles() {
-        particles = [];
-        const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
-        for (let i = 0; i < Math.min(particleCount, 100); i++) {
-            particles.push(new Particle());
-        }
-    }
-    
-    initParticles();
-    
-    // ライン描画（多角形ネットワーク）
-    function drawLines() {
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < 150) {
-                    const opacity = (1 - distance / 150) * 0.5;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    
-                    // グラデーションライン
-                    const gradient = ctx.createLinearGradient(
-                        particles[i].x, particles[i].y,
-                        particles[j].x, particles[j].y
-                    );
-                    gradient.addColorStop(0, `rgba(0, 229, 255, ${opacity})`);
-                    gradient.addColorStop(1, `rgba(0, 255, 136, ${opacity})`);
-                    
-                    ctx.strokeStyle = gradient;
-                    ctx.lineWidth = 1;
-                    ctx.stroke();
-                }
-            }
-        }
-    }
-    
-    // アニメーションループ
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // パーティクル更新と描画
-        particles.forEach(particle => {
-            particle.update();
-            particle.draw();
-        });
-        
-        // ライン描画
-        ctx.shadowBlur = 0;
-        drawLines();
-        
-        animationId = requestAnimationFrame(animate);
-    }
-    
-    animate();
-    
-    // リサイズ時にパーティクル再初期化
-    window.addEventListener('resize', () => {
-        initParticles();
-    });
-}
-
-initPolygonNetwork();
 
 // ========================================
 // スキルバーのアニメーション
