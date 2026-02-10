@@ -7,6 +7,17 @@
     box-sizing: border-box;
 }
 
+/* SVGアイコン共通 */
+.icon {
+    vertical-align: -0.15em;
+    margin-right: 4px;
+}
+
+.icon-badge {
+    vertical-align: -0.15em;
+    margin-right: 2px;
+}
+
 :root {
     --primary-color: #0056b3;
     --primary-hover: #003d82;
@@ -640,8 +651,9 @@ section:nth-of-type(odd) {
 }
 
 .vision-icon {
-    font-size: 4rem;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .vision-card h3 {
