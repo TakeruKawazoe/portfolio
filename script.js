@@ -1,133 +1,73 @@
-// ========================================
-// ハンバーガーメニュー
-// ========================================
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
+document.documentElement.classList.add("js");
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
+const siteHeader = document.querySelector(".site-header");
+const menuButton = document.querySelector(".menu-button");
+const globalNavigation = document.querySelector("#global-navigation");
+const navigationLinks = [...globalNavigation.querySelectorAll('a[href^="#"]')];
+const observedSections = [...document.querySelectorAll("main section[id]")];
+const desktopMedia = window.matchMedia("(min-width: 821px)");
+
+function closeMenu() {
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "メニューを開く");
+    globalNavigation.dataset.open = "false";
+}
+
+function openMenu() {
+    menuButton.setAttribute("aria-expanded", "true");
+    menuButton.setAttribute("aria-label", "メニューを閉じる");
+    globalNavigation.dataset.open = "true";
+}
+
+menuButton.addEventListener("click", () => {
+    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+    if (isOpen) {
+        closeMenu();
+        return;
+    }
+    openMenu();
 });
 
-// ナビリンクをクリックしたらメニューを閉じる
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-    });
+navigationLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
 });
 
-// ========================================
-// スクロール時のナビゲーション背景変更
-// ========================================
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+document.addEventListener("keydown", (event) => {
+    const isMenuOpen = menuButton.getAttribute("aria-expanded") === "true";
+    if (event.key === "Escape" && isMenuOpen) {
+        closeMenu();
+        menuButton.focus();
     }
 });
 
-// ========================================
-// スキルバーのアニメーション
-// ========================================
-const skillProgressBars = document.querySelectorAll('.skill-progress');
-
-const animateSkillBars = () => {
-    skillProgressBars.forEach(bar => {
-        const progress = bar.getAttribute('data-progress');
-        bar.style.width = progress + '%';
-    });
-};
-
-// Intersection Observerでスキルセクションが表示されたらアニメーション
-const skillsSection = document.querySelector('.skills');
-const skillsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateSkillBars();
-            skillsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.3 });
-
-skillsObserver.observe(skillsSection);
-
-// ========================================
-// フェードインアニメーション
-// ========================================
-const fadeElements = document.querySelectorAll('.skill-category, .project-card, .about-content, .contact-card, .vision-card');
-
-const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-            fadeObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1 });
-
-fadeElements.forEach(el => {
-    el.classList.add('hidden');
-    fadeObserver.observe(el);
+desktopMedia.addEventListener("change", (event) => {
+    if (event.matches) {
+        closeMenu();
+    }
 });
 
-// ========================================
-// スムーズスクロール（Safari対応）
-// ========================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            const headerOffset = 80;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+window.addEventListener("scroll", () => {
+    siteHeader.classList.toggle("is-scrolled", window.scrollY > 12);
+}, { passive: true });
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+            return;
         }
+
+        navigationLinks.forEach((link) => {
+            const targetId = link.getAttribute("href").slice(1);
+            if (targetId === entry.target.id) {
+                link.setAttribute("aria-current", "true");
+                return;
+            }
+            link.removeAttribute("aria-current");
+        });
     });
+}, {
+    rootMargin: "-25% 0px -65% 0px",
+    threshold: 0,
 });
 
-// ========================================
-// タイピングエフェクト（オプション）
-// ========================================
-const typeWriter = (element, text, speed = 100) => {
-    let i = 0;
-    element.textContent = '';
-    
-    const type = () => {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    };
-    
-    type();
-};
-
-// ========================================
-// 現在の年を自動更新
-// ========================================
-const currentYear = new Date().getFullYear();
-const footerText = document.querySelector('.footer p');
-if (footerText) {
-    footerText.innerHTML = `&copy; ${currentYear} 川添 偉生 (Takeru Kawazoe). All Rights Reserved.`;
-}
-
-// ========================================
-// ページ読み込み完了時の処理
-// ========================================
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-});
+observedSections.forEach((section) => sectionObserver.observe(section));
