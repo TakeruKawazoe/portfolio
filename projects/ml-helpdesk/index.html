@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="教師あり機械学習で社内問い合わせの分類・優先度・担当部署を予測する、ML Helpdesk Triageの開発事例です。">
+    <title>ML Helpdesk Triage | Takeru Kawazoe Portfolio</title>
+    <link rel="stylesheet" href="../../style.css?v=9">
+    <link rel="stylesheet" href="./project.css?v=1">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="project-detail-page">
+    <nav class="detail-navbar" aria-label="プロジェクトナビゲーション">
+        <a class="detail-brand" href="../../index.html">Takeru Kawazoe</a>
+        <div class="detail-nav-links">
+            <a href="#overview">概要</a>
+            <a href="#architecture">構成</a>
+            <a href="#evaluation">評価</a>
+            <a class="detail-back-link" href="../../index.html#projects">Worksへ戻る</a>
+        </div>
+    </nav>
+
+    <header class="detail-hero">
+        <div class="detail-container detail-hero-grid">
+            <div class="detail-hero-copy">
+                <p class="detail-eyebrow">SUPERVISED MACHINE LEARNING / OPERATIONS</p>
+                <h1>ML Helpdesk Triage</h1>
+                <p class="detail-lead">
+                    社内問い合わせを受け付け、カテゴリ・優先度・担当部署を予測する業務支援アプリです。
+                    予測だけで終わらせず、人による確認、履歴、通知、フィードバックまでを一つの流れにまとめました。
+                </p>
+                <div class="detail-actions" aria-label="プロジェクトリンク">
+                    <span class="detail-button detail-button-disabled" aria-disabled="true">公開デモ準備中</span>
+                    <a class="detail-button detail-button-secondary" href="https://github.com/TakeruKawazoe/ml-helpdesk-triage" target="_blank" rel="noopener noreferrer">GitHubを見る</a>
+                </div>
+                <ul class="detail-tech-list" aria-label="使用技術">
+                    <li>Python</li>
+                    <li>scikit-learn</li>
+                    <li>SQLite</li>
+                    <li>Notion API</li>
+                    <li>Slack API</li>
+                </ul>
+            </div>
+            <figure class="product-shot">
+                <div class="product-shot-bar" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </div>
+                <img src="../../images/ml-helpdesk-dashboard.png" alt="ML Helpdesk Triageの予測履歴画面。検索、優先度、確認状態、予測結果を表示している。">
+                <figcaption>予測履歴と人による確認を一つの画面で管理</figcaption>
+            </figure>
+        </div>
+    </header>
+
+    <main>
+        <section id="overview" class="case-section">
+            <div class="detail-container">
+                <p class="section-kicker">01 / OVERVIEW</p>
+                <h2>問い合わせ対応の入口を整える</h2>
+                <div class="overview-grid">
+                    <div>
+                        <h3>解決したい課題</h3>
+                        <p>
+                            問い合わせのたびに担当者が内容を読み、緊急度を判断し、適切な部署へ振り分けると、初動までに時間がかかります。
+                            判断基準が人によって異なると、重要な問い合わせの見落としや担当部署の迷いも生じます。
+                        </p>
+                    </div>
+                    <div>
+                        <h3>このプロジェクトの役割</h3>
+                        <p>
+                            問い合わせ文から三つの項目を一次判定し、信頼度が基準を下回る結果は自動確定せず「要確認」とします。
+                            機械学習を人の判断を置き換えるものではなく、確認すべき対象を整理する手段として設計しました。
+                        </p>
+                    </div>
+                </div>
+                <dl class="project-facts">
+                    <div><dt>開発形態</dt><dd>個人開発</dd></div>
+                    <div><dt>対象業務</dt><dd>社内ヘルプデスク</dd></div>
+                    <div><dt>予測対象</dt><dd>カテゴリ・優先度・担当部署</dd></div>
+                    <div><dt>データ</dt><dd>すべて合成データ</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="case-section case-section-muted" aria-labelledby="demo-title">
+            <div class="detail-container">
+                <p class="section-kicker">02 / DEMO</p>
+                <h2 id="demo-title">操作デモ</h2>
+                <div class="video-placeholder" role="img" aria-label="デモ動画は公開準備中です">
+                    <span class="video-play" aria-hidden="true"></span>
+                    <div>
+                        <strong>デモ動画は準備中です</strong>
+                        <p>問い合わせ登録から予測、確認、外部連携までの操作を掲載予定です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" aria-labelledby="features-title">
+            <div class="detail-container">
+                <p class="section-kicker">03 / FEATURES</p>
+                <h2 id="features-title">主要機能</h2>
+                <div class="feature-grid">
+                    <article class="feature-item">
+                        <span class="feature-number">01</span>
+                        <h3>問い合わせの一次判定</h3>
+                        <p>自由記述の問い合わせ文からカテゴリ、優先度、担当部署をそれぞれ予測します。</p>
+                    </article>
+                    <article class="feature-item">
+                        <span class="feature-number">02</span>
+                        <h3>信頼度による要確認判定</h3>
+                        <p>評価データから決めた基準を下回る予測を、人が確認する対象として分離します。</p>
+                    </article>
+                    <article class="feature-item">
+                        <span class="feature-number">03</span>
+                        <h3>履歴・検索・CSV出力</h3>
+                        <p>予測履歴を条件で絞り込み、対応状況の確認や分析用データの出力を行えます。</p>
+                    </article>
+                    <article class="feature-item">
+                        <span class="feature-number">04</span>
+                        <h3>修正フィードバック</h3>
+                        <p>誤った予測を修正して記録し、品質条件を満たした場合だけ再学習に利用します。</p>
+                    </article>
+                    <article class="feature-item">
+                        <span class="feature-number">05</span>
+                        <h3>Notion・Slack連携</h3>
+                        <p>台帳への自動登録と、中・高優先度の担当部署へのメンション通知に対応します。</p>
+                    </article>
+                    <article class="feature-item">
+                        <span class="feature-number">06</span>
+                        <h3>ログイン・権限管理</h3>
+                        <p>社員、担当者、管理者で閲覧範囲と操作権限を分け、管理操作を記録します。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="architecture" class="case-section architecture-section" aria-labelledby="architecture-title">
+            <div class="detail-container">
+                <p class="section-kicker section-kicker-light">04 / ARCHITECTURE</p>
+                <h2 id="architecture-title">システム構成</h2>
+                <p class="section-intro">予測処理、業務データ、外部通知を分け、外部連携に失敗しても予測履歴を残せる構成です。</p>
+                <div class="architecture-flow" aria-label="ブラウザからPythonアプリケーション、機械学習モデル、保存領域、NotionとSlackへ連携する構成図">
+                    <div class="architecture-node">
+                        <span class="architecture-label">INPUT</span>
+                        <strong>Web UI</strong>
+                        <small>問い合わせ登録・確認</small>
+                    </div>
+                    <span class="architecture-arrow" aria-hidden="true">→</span>
+                    <div class="architecture-node architecture-node-accent">
+                        <span class="architecture-label">APPLICATION</span>
+                        <strong>Python Web App</strong>
+                        <small>認証・業務ロジック</small>
+                    </div>
+                    <span class="architecture-arrow" aria-hidden="true">→</span>
+                    <div class="architecture-stack">
+                        <div class="architecture-node">
+                            <span class="architecture-label">PREDICTION</span>
+                            <strong>3 Models</strong>
+                            <small>カテゴリ・優先度・部署</small>
+                        </div>
+                        <div class="architecture-node">
+                            <span class="architecture-label">STORAGE</span>
+                            <strong>SQLite / CSV</strong>
+                            <small>ユーザー・履歴・FB</small>
+                        </div>
+                    </div>
+                    <span class="architecture-arrow" aria-hidden="true">→</span>
+                    <div class="architecture-stack">
+                        <div class="architecture-node architecture-node-external">
+                            <span class="architecture-label">RECORD</span>
+                            <strong>Notion</strong>
+                            <small>問い合わせ台帳</small>
+                        </div>
+                        <div class="architecture-node architecture-node-external">
+                            <span class="architecture-label">ALERT</span>
+                            <strong>Slack</strong>
+                            <small>担当部署へ通知</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" aria-labelledby="method-title">
+            <div class="detail-container model-layout">
+                <div>
+                    <p class="section-kicker">05 / MACHINE LEARNING</p>
+                    <h2 id="method-title">教師データと学習手法</h2>
+                    <p class="section-intro">
+                        実在する企業・顧客・従業員の情報は使用せず、業務で想定される文面をもとに合成データを作成しました。
+                    </p>
+                    <ul class="detail-list">
+                        <li><strong>学習・モデル選定用:</strong> 合成問い合わせ540件</li>
+                        <li><strong>固定ホールドアウト:</strong> 未知の合成問い合わせ81件</li>
+                        <li><strong>前処理:</strong> 文字n-gram・単語n-gramのTF-IDF</li>
+                        <li><strong>比較:</strong> Logistic RegressionとLinearSVCを中心に7候補</li>
+                    </ul>
+                </div>
+                <div class="model-steps" aria-label="機械学習の処理手順">
+                    <div><span>1</span><p>問い合わせ文を正規化</p></div>
+                    <div><span>2</span><p>TF-IDFで特徴量へ変換</p></div>
+                    <div><span>3</span><p>三つのモデルで個別に予測</p></div>
+                    <div><span>4</span><p>信頼度基準で自動判定か要確認へ</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="evaluation" class="case-section case-section-muted" aria-labelledby="evaluation-title">
+            <div class="detail-container">
+                <p class="section-kicker">06 / EVALUATION</p>
+                <h2 id="evaluation-title">モデル評価結果</h2>
+                <div class="metric-grid">
+                    <article class="metric-item">
+                        <span class="metric-name">カテゴリ</span>
+                        <strong>1.000</strong>
+                        <span>Macro F1</span>
+                        <small>Hybrid TF-IDF + LinearSVC</small>
+                    </article>
+                    <article class="metric-item">
+                        <span class="metric-name">優先度</span>
+                        <strong>1.000</strong>
+                        <span>Macro F1</span>
+                        <small>Hybrid TF-IDF + LinearSVC</small>
+                    </article>
+                    <article class="metric-item">
+                        <span class="metric-name">担当部署</span>
+                        <strong>1.000</strong>
+                        <span>Macro F1</span>
+                        <small>文字TF-IDF + Logistic Regression</small>
+                    </article>
+                </div>
+                <div class="evaluation-note">
+                    <strong>評価値の読み方</strong>
+                    <p>
+                        上記は、学習に使っていない81件の<strong>合成固定ホールドアウト</strong>に対する結果です。
+                        合成データでは明確に分離できていますが、表現の揺れや未知の業務用語を含む実データでの精度を保証する値ではありません。
+                        実運用前には、同意を得て匿名化した実データによる再評価が必要です。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" aria-labelledby="integration-title">
+            <div class="detail-container">
+                <p class="section-kicker">07 / INTEGRATION</p>
+                <h2 id="integration-title">Notion・Slack連携</h2>
+                <div class="integration-grid">
+                    <article class="integration-item">
+                        <span class="integration-service">Notion</span>
+                        <h3>問い合わせ台帳を自動作成</h3>
+                        <p>問い合わせ文、予測結果、確認状態をデータベースへ登録し、業務側の台帳として参照できるようにしました。</p>
+                    </article>
+                    <article class="integration-item">
+                        <span class="integration-service integration-service-slack">Slack</span>
+                        <h3>対応が必要な部署へ通知</h3>
+                        <p>優先度がMiddleまたはHighのとき、予測した担当部署に対応する担当者をメンションして共通チャンネルへ通知します。</p>
+                    </article>
+                </div>
+                <p class="integration-policy">外部APIへの接続情報はコードに含めず、実行環境の環境変数で管理しています。公開デモでは外部連携を無効化します。</p>
+            </div>
+        </section>
+
+        <section class="case-section case-section-muted" aria-labelledby="auth-title">
+            <div class="detail-container auth-layout">
+                <div>
+                    <p class="section-kicker">08 / AUTHORIZATION</p>
+                    <h2 id="auth-title">認証・権限管理</h2>
+                    <p class="section-intro">社外からの閲覧を防ぎ、役割ごとに必要な機能だけを提供する構成です。</p>
+                </div>
+                <div class="role-table" role="table" aria-label="役割ごとの権限">
+                    <div class="role-row role-header" role="row">
+                        <span role="columnheader">役割</span><span role="columnheader">主な操作</span>
+                    </div>
+                    <div class="role-row" role="row">
+                        <strong role="cell">社員</strong><span role="cell">問い合わせ登録、自分の履歴確認</span>
+                    </div>
+                    <div class="role-row" role="row">
+                        <strong role="cell">担当者</strong><span role="cell">自部署の問い合わせ確認・修正</span>
+                    </div>
+                    <div class="role-row" role="row">
+                        <strong role="cell">管理者</strong><span role="cell">全履歴、削除、ユーザー管理、監査</span>
+                    </div>
+                </div>
+                <ul class="security-list">
+                    <li>管理者が社員アカウントを発行し、自由登録は禁止</li>
+                    <li>パスワードはPBKDF2-HMAC-SHA256でハッシュ化</li>
+                    <li>管理操作は実行者・日時・理由を履歴として保存</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="case-section" aria-labelledby="decisions-title">
+            <div class="detail-container">
+                <p class="section-kicker">09 / ENGINEERING DECISIONS</p>
+                <h2 id="decisions-title">技術的に工夫した点</h2>
+                <div class="decision-list">
+                    <article>
+                        <h3>精度だけでなく誤判定の影響を見る</h3>
+                        <p>Accuracyだけで選ばず、クラスごとのF1、Highの見逃し、担当部署の誤振り分けも比較してモデルを選定しました。</p>
+                    </article>
+                    <article>
+                        <h3>低信頼度を自動確定しない</h3>
+                        <p>自動振り分けの適合率が校正データ上で90%以上になる基準を探索し、基準未満は人による確認へ回します。</p>
+                    </article>
+                    <article>
+                        <h3>失敗の影響範囲を分ける</h3>
+                        <p>Slack通知に失敗しても予測やNotion登録は残し、画面に失敗を明示して再対応できる設計にしました。</p>
+                    </article>
+                    <article>
+                        <h3>修正履歴を学習につなげる</h3>
+                        <p>人による修正を記録し、再学習後の評価が既存モデルを下回らない場合だけ更新する品質ゲートを設けました。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section case-section-muted" aria-labelledby="comparison-title">
+            <div class="detail-container">
+                <p class="section-kicker">10 / BEFORE &amp; AFTER</p>
+                <h2 id="comparison-title">改善前後の比較</h2>
+                <div class="comparison-table">
+                    <div class="comparison-row comparison-header">
+                        <span>業務</span><span>改善前</span><span>改善後</span>
+                    </div>
+                    <div class="comparison-row">
+                        <strong>一次判断</strong><span>担当者が全文を読み手作業で分類</span><span>3項目を予測し、要確認だけ人が判断</span>
+                    </div>
+                    <div class="comparison-row">
+                        <strong>記録</strong><span>複数の場所へ転記</span><span>履歴保存とNotion登録を一つの操作で実行</span>
+                    </div>
+                    <div class="comparison-row">
+                        <strong>通知</strong><span>担当者を探して個別連絡</span><span>優先度と部署に応じてSlackへ自動通知</span>
+                    </div>
+                    <div class="comparison-row">
+                        <strong>改善</strong><span>誤分類が知見として残りにくい</span><span>修正フィードバックを再学習候補として蓄積</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section project-cta" aria-labelledby="cta-title">
+            <div class="detail-container project-cta-inner">
+                <div>
+                    <p class="section-kicker section-kicker-light">SOURCE &amp; DEMO</p>
+                    <h2 id="cta-title">実装と操作を確認する</h2>
+                    <p>ソースコードとREADMEはGitHubで公開しています。操作用デモは安全な公開設定を整えた後に追加します。</p>
+                </div>
+                <div class="detail-actions">
+                    <span class="detail-button detail-button-on-dark-disabled" aria-disabled="true">公開デモ準備中</span>
+                    <a class="detail-button detail-button-on-dark" href="https://github.com/TakeruKawazoe/ml-helpdesk-triage" target="_blank" rel="noopener noreferrer">GitHubを見る</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" aria-labelledby="future-title">
+            <div class="detail-container">
+                <p class="section-kicker">11 / NEXT</p>
+                <h2 id="future-title">今後の発展</h2>
+                <ol class="future-list">
+                    <li><span>01</span><div><strong>実データでの評価</strong><p>同意を得て匿名化した問い合わせを用い、表現の揺れを含む実運用に近い条件で再評価します。</p></div></li>
+                    <li><span>02</span><div><strong>永続化と運用監視</strong><p>公開環境向けのデータベース、HTTPS、バックアップ、モデルドリフト監視を整備します。</p></div></li>
+                    <li><span>03</span><div><strong>Androidクライアント</strong><p>既存の予測APIを利用し、スマートフォンから問い合わせを登録できるアプリへ発展させます。</p></div></li>
+                </ol>
+                <a class="text-back-link" href="../../index.html#projects">← Works / Projectsへ戻る</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="detail-footer">
+        <div class="detail-container">
+            <p>&copy; 2026 川添 偉生 (Takeru Kawazoe). All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
