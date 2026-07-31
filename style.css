@@ -23,6 +23,34 @@
     --transition: 160ms ease;
 }
 
+@view-transition {
+    navigation: auto;
+}
+
+.ml-project-title {
+    view-transition-name: ml-helpdesk-title;
+}
+
+.ml-project-image {
+    view-transition-name: ml-helpdesk-image;
+}
+
+::view-transition-old(root) {
+    animation: 180ms ease both page-fade-out;
+}
+
+::view-transition-new(root) {
+    animation: 320ms ease both page-fade-in;
+}
+
+@keyframes page-fade-out {
+    to { opacity: 0; }
+}
+
+@keyframes page-fade-in {
+    from { opacity: 0; }
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: clip;
@@ -339,6 +367,10 @@ select {
 
 .proof-strip dt span {
     color: #71c4c9;
+}
+
+.proof-strip dt .count-value {
+    color: inherit;
 }
 
 .proof-strip dd {
@@ -673,6 +705,28 @@ select {
     color: var(--text-color);
     font-size: 0.82rem;
     font-weight: 700;
+}
+
+.count-value {
+    font-variant-numeric: tabular-nums;
+}
+
+.impact-values strong .count-value {
+    margin-left: 0;
+    font-size: inherit;
+}
+
+.motion-ready .reveal-item {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity 520ms ease calc(var(--reveal-order, 0) * 55ms),
+        transform 520ms ease calc(var(--reveal-order, 0) * 55ms);
+}
+
+.motion-ready .reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .compact-project .tag-list {
@@ -1275,6 +1329,20 @@ select {
     *::before,
     *::after {
         scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+
+    .motion-ready .reveal-item {
+        opacity: 1;
+        transform: none;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root),
+    ::view-transition-group(ml-helpdesk-title),
+    ::view-transition-group(ml-helpdesk-image) {
+        animation-duration: 0.01ms !important;
     }
 }

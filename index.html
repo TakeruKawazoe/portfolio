@@ -10,7 +10,8 @@
     <meta property="og:url" content="https://takerukawazoe.github.io/portfolio/">
     <meta property="og:image" content="https://takerukawazoe.github.io/portfolio/images/ml-helpdesk-dashboard.png">
     <title>川添 偉生 | ITエンジニア ポートフォリオ</title>
-    <link rel="stylesheet" href="./style.css?v=10">
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="./style.css?v=11">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body class="career-page">
@@ -57,7 +58,7 @@
 
                 <dl class="proof-strip" aria-label="実績サマリー">
                     <div>
-                        <dt>20時間 <span>→</span> 30分</dt>
+                        <dt><span class="count-value" data-count-to="20">20</span>時間 <span>→</span> <span class="count-value" data-count-to="30">30</span>分</dt>
                         <dd>月間業務工数を削減</dd>
                     </div>
                     <div>
@@ -128,7 +129,7 @@
                                 <span class="project-type project-type-personal">個人開発</span>
                                 <span>教師あり機械学習</span>
                             </div>
-                            <h3>ML Helpdesk Triage</h3>
+                            <h3 class="ml-project-title">ML Helpdesk Triage</h3>
                             <p class="project-lead">
                                 社内問い合わせ文からカテゴリ・優先度・担当部署を予測し、低信頼度の結果だけを人の確認へ回す業務支援アプリです。
                                 認証、履歴、修正フィードバック、Notion・Slack連携まで実装しました。
@@ -153,7 +154,7 @@
                             <p class="demo-note">停止後の初回起動には約1分かかります。公開デモの入力内容は再起動時に消去されます。</p>
                         </div>
                         <a class="product-preview" href="./projects/ml-helpdesk/" aria-label="ML Helpdesk Triageの詳細ページを見る">
-                            <img src="./images/ml-helpdesk-dashboard.png" alt="ML Helpdesk Triageの予測履歴画面">
+                            <img class="ml-project-image" src="./images/ml-helpdesk-dashboard.png" alt="ML Helpdesk Triageの予測履歴画面">
                             <span>認証・履歴・人による確認を備えたWebアプリ</span>
                         </a>
                     </article>
@@ -172,7 +173,7 @@
                             <div class="process-visual" aria-label="仮説、特徴量作成、モデル比較、本番提出の4工程">
                                 <span>仮説</span><span>特徴量</span><span>比較</span><span>提出</span>
                             </div>
-                            <p class="project-result">本番提出のPrivate LeaderboardでRMSEを約4,200から約3,000へ改善</p>
+                            <p class="project-result">本番提出のPrivate LeaderboardでRMSEを約<span class="count-value" data-count-to="4200" data-count-format="comma">4,200</span>から約<span class="count-value" data-count-to="3000" data-count-format="comma">3,000</span>へ改善</p>
                             <div class="tag-list" aria-label="使用技術">
                                 <span>Python</span>
                                 <span>pandas</span>
@@ -403,6 +404,7 @@
         </div>
     </footer>
 
-    <script src="./script.js?v=3"></script>
+    <script src="./motion.js?v=1"></script>
+    <script src="./script.js?v=4"></script>
 </body>
 </html>

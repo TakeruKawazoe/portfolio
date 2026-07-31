@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="教師あり機械学習で社内問い合わせの分類・優先度・担当部署を予測する、ML Helpdesk Triageの開発事例です。">
     <title>ML Helpdesk Triage | Takeru Kawazoe Portfolio</title>
-    <link rel="stylesheet" href="../../style.css?v=10">
-    <link rel="stylesheet" href="./project.css?v=1">
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="../../style.css?v=11">
+    <link rel="stylesheet" href="./project.css?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body class="project-detail-page">
@@ -24,7 +25,7 @@
         <div class="detail-container detail-hero-grid">
             <div class="detail-hero-copy">
                 <p class="detail-eyebrow">SUPERVISED MACHINE LEARNING / OPERATIONS</p>
-                <h1>ML Helpdesk Triage</h1>
+                <h1 class="ml-project-title">ML Helpdesk Triage</h1>
                 <p class="detail-lead">
                     社内問い合わせを受け付け、カテゴリ・優先度・担当部署を予測する業務支援アプリです。
                     予測だけで終わらせず、人による確認、履歴、通知、フィードバックまでを一つの流れにまとめました。
@@ -45,7 +46,7 @@
                 <div class="product-shot-bar" aria-hidden="true">
                     <span></span><span></span><span></span>
                 </div>
-                <img src="../../images/ml-helpdesk-dashboard.png" alt="ML Helpdesk Triageの予測履歴画面。検索、優先度、確認状態、予測結果を表示している。">
+                <img class="ml-project-image" src="../../images/ml-helpdesk-dashboard.png" alt="ML Helpdesk Triageの予測履歴画面。検索、優先度、確認状態、予測結果を表示している。">
                 <figcaption>予測履歴と人による確認を一つの画面で管理</figcaption>
             </figure>
         </div>
@@ -139,39 +140,43 @@
                 <p class="section-kicker section-kicker-light">04 / ARCHITECTURE</p>
                 <h2 id="architecture-title">システム構成</h2>
                 <p class="section-intro">予測処理、業務データ、外部通知を分け、外部連携に失敗しても予測履歴を残せる構成です。</p>
-                <div class="architecture-flow" aria-label="ブラウザからPythonアプリケーション、機械学習モデル、保存領域、NotionとSlackへ連携する構成図">
-                    <div class="architecture-node">
+                <div class="flow-controls">
+                    <button class="flow-button" type="button" data-flow-trigger aria-controls="architecture-flow">処理フローを再生</button>
+                    <p class="flow-status" data-flow-status role="status" aria-live="polite">ボタンを押すと、問い合わせ受付から通知までの処理を確認できます。</p>
+                </div>
+                <div id="architecture-flow" class="architecture-flow" aria-label="ブラウザからPythonアプリケーション、機械学習モデル、保存領域、NotionとSlackへ連携する構成図">
+                    <div class="architecture-node" data-flow-stage="0">
                         <span class="architecture-label">INPUT</span>
                         <strong>Web UI</strong>
                         <small>問い合わせ登録・確認</small>
                     </div>
-                    <span class="architecture-arrow" aria-hidden="true">→</span>
-                    <div class="architecture-node architecture-node-accent">
+                    <span class="architecture-arrow" data-flow-link="1" aria-hidden="true">→</span>
+                    <div class="architecture-node architecture-node-accent" data-flow-stage="1">
                         <span class="architecture-label">APPLICATION</span>
                         <strong>Python Web App</strong>
                         <small>認証・業務ロジック</small>
                     </div>
-                    <span class="architecture-arrow" aria-hidden="true">→</span>
+                    <span class="architecture-arrow" data-flow-link="2" aria-hidden="true">→</span>
                     <div class="architecture-stack">
-                        <div class="architecture-node">
+                        <div class="architecture-node" data-flow-stage="2">
                             <span class="architecture-label">PREDICTION</span>
                             <strong>3 Models</strong>
                             <small>カテゴリ・優先度・部署</small>
                         </div>
-                        <div class="architecture-node">
+                        <div class="architecture-node" data-flow-stage="2">
                             <span class="architecture-label">STORAGE</span>
                             <strong>SQLite / CSV</strong>
                             <small>ユーザー・履歴・FB</small>
                         </div>
                     </div>
-                    <span class="architecture-arrow" aria-hidden="true">→</span>
+                    <span class="architecture-arrow" data-flow-link="3" aria-hidden="true">→</span>
                     <div class="architecture-stack">
-                        <div class="architecture-node architecture-node-external">
+                        <div class="architecture-node architecture-node-external" data-flow-stage="3">
                             <span class="architecture-label">RECORD</span>
                             <strong>Notion</strong>
                             <small>問い合わせ台帳</small>
                         </div>
-                        <div class="architecture-node architecture-node-external">
+                        <div class="architecture-node architecture-node-external" data-flow-stage="4">
                             <span class="architecture-label">ALERT</span>
                             <strong>Slack</strong>
                             <small>担当部署へ通知</small>
@@ -212,19 +217,19 @@
                 <div class="metric-grid">
                     <article class="metric-item">
                         <span class="metric-name">カテゴリ</span>
-                        <strong>1.000</strong>
+                        <strong class="count-value" data-count-to="1" data-count-decimals="3">1.000</strong>
                         <span>Macro F1</span>
                         <small>Hybrid TF-IDF + LinearSVC</small>
                     </article>
                     <article class="metric-item">
                         <span class="metric-name">優先度</span>
-                        <strong>1.000</strong>
+                        <strong class="count-value" data-count-to="1" data-count-decimals="3">1.000</strong>
                         <span>Macro F1</span>
                         <small>Hybrid TF-IDF + LinearSVC</small>
                     </article>
                     <article class="metric-item">
                         <span class="metric-name">担当部署</span>
-                        <strong>1.000</strong>
+                        <strong class="count-value" data-count-to="1" data-count-decimals="3">1.000</strong>
                         <span>Macro F1</span>
                         <small>文字TF-IDF + Logistic Regression</small>
                     </article>
@@ -318,21 +323,26 @@
             <div class="detail-container">
                 <p class="section-kicker">10 / BEFORE &amp; AFTER</p>
                 <h2 id="comparison-title">改善前後の比較</h2>
+                <div class="comparison-controls" role="group" aria-label="改善前後の表示切り替え">
+                    <button type="button" data-comparison-mode="before" aria-pressed="true">改善前</button>
+                    <button type="button" data-comparison-mode="after" aria-pressed="false">改善後</button>
+                </div>
+                <p class="comparison-summary" data-comparison-summary aria-live="polite">改善前は、問い合わせの判断・記録・通知を担当者が手作業で行います。</p>
                 <div class="comparison-table">
                     <div class="comparison-row comparison-header">
-                        <span>業務</span><span>改善前</span><span>改善後</span>
+                        <span>業務</span><span class="comparison-before">改善前</span><span class="comparison-after">改善後</span>
                     </div>
                     <div class="comparison-row">
-                        <strong>一次判断</strong><span>担当者が全文を読み手作業で分類</span><span>3項目を予測し、要確認だけ人が判断</span>
+                        <strong>一次判断</strong><span class="comparison-before">担当者が全文を読み手作業で分類</span><span class="comparison-after">3項目を予測し、要確認だけ人が判断</span>
                     </div>
                     <div class="comparison-row">
-                        <strong>記録</strong><span>複数の場所へ転記</span><span>履歴保存とNotion登録を一つの操作で実行</span>
+                        <strong>記録</strong><span class="comparison-before">複数の場所へ転記</span><span class="comparison-after">履歴保存とNotion登録を一つの操作で実行</span>
                     </div>
                     <div class="comparison-row">
-                        <strong>通知</strong><span>担当者を探して個別連絡</span><span>優先度と部署に応じてSlackへ自動通知</span>
+                        <strong>通知</strong><span class="comparison-before">担当者を探して個別連絡</span><span class="comparison-after">優先度と部署に応じてSlackへ自動通知</span>
                     </div>
                     <div class="comparison-row">
-                        <strong>改善</strong><span>誤分類が知見として残りにくい</span><span>修正フィードバックを再学習候補として蓄積</span>
+                        <strong>改善</strong><span class="comparison-before">誤分類が知見として残りにくい</span><span class="comparison-after">修正フィードバックを再学習候補として蓄積</span>
                     </div>
                 </div>
             </div>
@@ -372,5 +382,7 @@
             <p>&copy; 2026 川添 偉生 (Takeru Kawazoe). All Rights Reserved.</p>
         </div>
     </footer>
+    <script src="../../motion.js?v=1"></script>
+    <script src="./project.js?v=1"></script>
 </body>
 </html>
