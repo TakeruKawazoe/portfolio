@@ -74,6 +74,15 @@ function playFlow() {
 
 if (flowTrigger && flowStatus && flowNodes.length > 0) {
     flowTrigger.addEventListener("click", playFlow);
+    reducedFlowMotion.addEventListener("change", (event) => {
+        if (!event.matches || !flowTrigger.disabled) {
+            return;
+        }
+
+        clearFlowTimers();
+        completeFlow();
+        flowStatus.textContent = "アニメーション軽減設定に合わせ、処理完了状態を表示しました。";
+    });
 }
 
 const comparisonButtons = [...document.querySelectorAll("[data-comparison-mode]")];

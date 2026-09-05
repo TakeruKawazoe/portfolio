@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="教師あり機械学習で社内問い合わせの分類・優先度・担当部署を予測する、ML Helpdesk Triageの開発事例です。">
+    <meta property="og:title" content="ML Helpdesk Triage | 川添 偉生 ポートフォリオ">
+    <meta property="og:description" content="予測、人による確認、履歴、通知、フィードバックまでを一つの流れにまとめた業務支援アプリの開発事例です。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://takerukawazoe.github.io/portfolio/projects/ml-helpdesk/">
+    <meta property="og:image" content="https://takerukawazoe.github.io/portfolio/images/ml-helpdesk-dashboard.png">
+    <meta name="twitter:card" content="summary_large_image">
     <title>ML Helpdesk Triage | Takeru Kawazoe Portfolio</title>
     <script>document.documentElement.classList.add("js");</script>
-    <link rel="stylesheet" href="../../style.css?v=11">
-    <link rel="stylesheet" href="./project.css?v=2">
+    <link rel="stylesheet" href="../../style.css?v=12">
+    <link rel="stylesheet" href="./project.css?v=4">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body class="project-detail-page">
+    <a class="skip-link" href="#main-content">本文へ移動</a>
     <nav class="detail-navbar" aria-label="プロジェクトナビゲーション">
         <a class="detail-brand" href="../../index.html">Takeru Kawazoe</a>
         <div class="detail-nav-links">
             <a href="#overview">概要</a>
+            <a href="#demo">デモ</a>
             <a href="#architecture">構成</a>
             <a href="#evaluation">評価</a>
             <a class="detail-back-link" href="../../index.html#projects">Worksへ戻る</a>
@@ -30,9 +38,15 @@
                     社内問い合わせを受け付け、カテゴリ・優先度・担当部署を予測する業務支援アプリです。
                     予測だけで終わらせず、人による確認、履歴、通知、フィードバックまでを一つの流れにまとめました。
                 </p>
+                <dl class="detail-quick-facts" aria-label="プロジェクト要約">
+                    <div><dt>開発形態</dt><dd>個人開発</dd></div>
+                    <div><dt>実装範囲</dt><dd>認証・予測・履歴・通知・フィードバック</dd></div>
+                    <div><dt>評価条件</dt><dd>81件の合成固定ホールドアウト</dd></div>
+                    <div><dt>評価の注意</dt><dd>実データでの精度は保証しません</dd></div>
+                </dl>
                 <div class="detail-actions" aria-label="プロジェクトリンク">
-                    <a class="detail-button" href="https://ml-helpdesk-triage-demo.onrender.com/" target="_blank" rel="noopener noreferrer">公開デモを試す</a>
-                    <a class="detail-button detail-button-secondary" href="https://github.com/TakeruKawazoe/ml-helpdesk-triage" target="_blank" rel="noopener noreferrer">GitHubを見る</a>
+                    <a class="detail-button" href="https://ml-helpdesk-triage-demo.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="公開デモを試す（新しいタブで開く）">公開デモを試す</a>
+                    <a class="detail-button detail-button-secondary" href="https://github.com/TakeruKawazoe/ml-helpdesk-triage" target="_blank" rel="noopener noreferrer" aria-label="GitHubを見る（新しいタブで開く）">GitHubを見る</a>
                 </div>
                 <ul class="detail-tech-list" aria-label="使用技術">
                     <li>Python</li>
@@ -46,13 +60,13 @@
                 <div class="product-shot-bar" aria-hidden="true">
                     <span></span><span></span><span></span>
                 </div>
-                <img class="ml-project-image" src="../../images/ml-helpdesk-dashboard.png" alt="ML Helpdesk Triageの予測履歴画面。検索、優先度、確認状態、予測結果を表示している。">
+                <img class="ml-project-image" src="../../images/ml-helpdesk-dashboard.png" width="1440" height="1800" decoding="async" fetchpriority="high" alt="ML Helpdesk Triageの予測履歴画面。検索、優先度、確認状態、予測結果を表示している。">
                 <figcaption>予測履歴と人による確認を一つの画面で管理</figcaption>
             </figure>
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section id="overview" class="case-section">
             <div class="detail-container">
                 <p class="section-kicker">01 / OVERVIEW</p>
@@ -82,16 +96,16 @@
             </div>
         </section>
 
-        <section class="case-section case-section-muted" aria-labelledby="demo-title">
+        <section id="demo" class="case-section case-section-muted" aria-labelledby="demo-title">
             <div class="detail-container">
                 <p class="section-kicker">02 / DEMO</p>
                 <h2 id="demo-title">操作デモ</h2>
-                <div class="video-placeholder" role="img" aria-label="デモ動画は公開準備中です">
-                    <span class="video-play" aria-hidden="true"></span>
+                <div class="demo-cta-panel">
                     <div>
-                        <strong>デモ動画は準備中です</strong>
-                        <p>問い合わせ登録から予測、確認、外部連携までの操作を掲載予定です。</p>
+                        <h3>公開デモで確認できること</h3>
+                        <p>問い合わせ登録、3項目の予測、要確認判定、履歴検索をダミーデータで試せます。安全のため、外部連携と管理機能は無効化しています。</p>
                     </div>
+                    <a class="detail-button detail-button-secondary" href="https://ml-helpdesk-triage-demo.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="公開デモを試す（新しいタブで開く）">公開デモを試す</a>
                 </div>
             </div>
         </section>
@@ -357,8 +371,8 @@
                     <p>無料公開環境のため、停止後の初回表示には1分ほどかかることがあります。入力したデータは再起動時に消去されます。</p>
                 </div>
                 <div class="detail-actions">
-                    <a class="detail-button detail-button-on-dark" href="https://ml-helpdesk-triage-demo.onrender.com/" target="_blank" rel="noopener noreferrer">公開デモを試す</a>
-                    <a class="detail-button detail-button-on-dark" href="https://github.com/TakeruKawazoe/ml-helpdesk-triage" target="_blank" rel="noopener noreferrer">GitHubを見る</a>
+                    <a class="detail-button detail-button-on-dark" href="https://ml-helpdesk-triage-demo.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="公開デモを試す（新しいタブで開く）">公開デモを試す</a>
+                    <a class="detail-button detail-button-on-dark" href="https://github.com/TakeruKawazoe/ml-helpdesk-triage" target="_blank" rel="noopener noreferrer" aria-label="GitHubを見る（新しいタブで開く）">GitHubを見る</a>
                 </div>
             </div>
         </section>
@@ -383,6 +397,6 @@
         </div>
     </footer>
     <script src="../../motion.js?v=1"></script>
-    <script src="./project.js?v=1"></script>
+    <script src="./project.js?v=2"></script>
 </body>
 </html>
