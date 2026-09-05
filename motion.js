@@ -2,6 +2,7 @@ const reducedMotionMedia = window.matchMedia("(prefers-reduced-motion: reduce)")
 
 const revealSelectors = [
     ".intro-copy > *",
+    ".hero-case",
     ".proof-strip > div",
     ".section-heading > *",
     ".project-story",
@@ -9,6 +10,7 @@ const revealSelectors = [
     ".experience-summary",
     ".experience-steps > li",
     ".approach-grid > *",
+    ".skills-priority",
     ".skills-grid > *",
     ".profile-layout > *",
     ".contact-layout > *",

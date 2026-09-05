@@ -12,7 +12,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>川添 偉生 | ITエンジニア ポートフォリオ</title>
     <script>document.documentElement.classList.add("js");</script>
-    <link rel="stylesheet" href="./style.css?v=12">
+    <link rel="stylesheet" href="./style.css?v=13">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body class="career-page">
@@ -42,19 +42,51 @@
     <main id="main-content">
         <section id="home" class="intro-section" aria-labelledby="intro-title">
             <div class="page-shell">
-                <div class="intro-copy">
-                    <p class="eyebrow">2028 GRADUATE / IT ENGINEER</p>
-                    <h1 id="intro-title">川添 偉生</h1>
-                    <p class="intro-statement">業務課題を、<br>使われ続ける仕組みに変える。</p>
-                    <p class="intro-description">
-                        日本工学院八王子専門学校 情報科学専門課程 ITスペシャリスト科3年。
-                        長期インターンで社内システムの要件整理から開発・運用まで担当し、
-                        利用者の声をもとに業務改善を続けてきました。
-                    </p>
-                    <div class="button-row" aria-label="主要リンク">
-                        <a class="button button-primary" href="#projects">代表実績を見る</a>
-                        <a class="button button-secondary" href="https://github.com/TakeruKawazoe" target="_blank" rel="noopener noreferrer" aria-label="GitHub（新しいタブで開く）">GitHub</a>
+                <div class="intro-stage">
+                    <div class="intro-copy">
+                        <p class="eyebrow">就職活動ポートフォリオ / 2028年卒</p>
+                        <h1 id="intro-title">川添 偉生</h1>
+                        <p class="intro-statement">業務課題を、<br>使われ続ける仕組みに変える。</p>
+                        <p class="intro-description">
+                            日本工学院八王子専門学校 ITスペシャリスト科3年。
+                            実務のJavaScriptと個人開発のPythonで、課題整理から運用改善まで取り組んでいます。
+                        </p>
+                        <div class="button-row" aria-label="主要リンク">
+                            <a class="button button-primary" href="./projects/ml-helpdesk/">ML Helpdeskの詳細を見る</a>
+                            <a class="button button-secondary" href="https://github.com/TakeruKawazoe" target="_blank" rel="noopener noreferrer" aria-label="GitHub（新しいタブで開く）">GitHub</a>
+                        </div>
                     </div>
+
+                    <aside class="hero-case" aria-labelledby="hero-case-title">
+                        <div class="hero-case-heading">
+                            <p>FEATURED PROJECT</p>
+                            <span><i aria-hidden="true"></i> HUMAN-IN-THE-LOOP</span>
+                        </div>
+                        <h2 id="hero-case-title">ML Helpdesk Triage</h2>
+                        <p class="hero-case-lead">低信頼度の予測は自動確定せず、人が確認できる業務フローとして設計。</p>
+                        <ol class="hero-flow">
+                            <li>
+                                <span>01</span>
+                                <p><strong>問い合わせ受付</strong><small>自由記述の相談内容を入力</small></p>
+                            </li>
+                            <li>
+                                <span>02</span>
+                                <p><strong>3項目をML予測</strong><small>カテゴリ・優先度・担当部署</small></p>
+                            </li>
+                            <li>
+                                <span>03</span>
+                                <p><strong>低信頼度のみ人が確認</strong><small>誤判定の影響を抑える設計</small></p>
+                            </li>
+                        </ol>
+                        <div class="hero-case-footer">
+                            <ul aria-label="使用技術">
+                                <li>Python</li>
+                                <li>scikit-learn</li>
+                                <li>SQLite</li>
+                            </ul>
+                            <a href="https://ml-helpdesk-triage-demo.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="ML Helpdesk Triageの公開デモ（新しいタブで開く）">公開デモ <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </aside>
                 </div>
 
                 <dl class="proof-strip" aria-label="実績サマリー">
@@ -301,8 +333,39 @@
                 <header class="section-heading">
                     <p class="section-index">04 / SKILLS</p>
                     <h2 id="skills-title">技術と経験</h2>
-                    <p>自己評価の数値ではなく、どこで何に使用したかを示しています。</p>
+                    <p>業務システム、機械学習、Web品質の3領域を、技術名だけでなく実装した課題と結び付けて示しています。</p>
                 </header>
+
+                <div class="skills-priority" aria-labelledby="skills-priority-title">
+                    <header>
+                        <p class="section-index">CORE TECHNOLOGY</p>
+                        <h3 id="skills-priority-title">実装で示す技術領域</h3>
+                        <p>流行語を並べず、実務・制作物・学習成果で説明できる技術を優先しています。</p>
+                    </header>
+                    <div class="skills-priority-grid">
+                        <article>
+                            <span>01 / 実務</span>
+                            <h4>業務システム・外部連携</h4>
+                            <p class="skills-priority-tech">JavaScript / GAS / Slack API</p>
+                            <p>要件整理から運用まで担当し、月間業務を約20時間から約30分へ削減。</p>
+                            <a href="#experience">実務経験を見る <span aria-hidden="true">→</span></a>
+                        </article>
+                        <article>
+                            <span>02 / 個人・チーム開発</span>
+                            <h4>機械学習・データ活用</h4>
+                            <p class="skills-priority-tech">Python / scikit-learn / SQLite</p>
+                            <p>モデル比較、学習に使わない合成固定データでの評価、人による確認を実装。</p>
+                            <a href="./projects/ml-helpdesk/">ML事例を見る <span aria-hidden="true">→</span></a>
+                        </article>
+                        <article>
+                            <span>03 / 個人開発</span>
+                            <h4>Web品質・操作性</h4>
+                            <p class="skills-priority-tech">HTML / CSS / JavaScript / Git</p>
+                            <p>本サイトでレスポンシブ、キーボード操作、ARIA、動きの軽減を実装。</p>
+                            <a href="https://github.com/TakeruKawazoe/portfolio" target="_blank" rel="noopener noreferrer" aria-label="ポートフォリオのGitHub（新しいタブで開く）">本サイトのコードを見る <span aria-hidden="true">↗</span></a>
+                        </article>
+                    </div>
+                </div>
 
                 <div class="skill-evidence">
                     <div class="skill-row">
@@ -405,7 +468,7 @@
         </div>
     </footer>
 
-    <script src="./motion.js?v=1"></script>
+    <script src="./motion.js?v=2"></script>
     <script src="./script.js?v=4"></script>
 </body>
 </html>
