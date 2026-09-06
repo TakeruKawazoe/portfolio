@@ -251,23 +251,6 @@ select {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-.intro-section {
-    padding: 94px 0 70px;
-    background: linear-gradient(118deg, #ffffff 0%, #ffffff 58%, #eef7f7 58%, #ffffff 100%);
-    border-bottom: 1px solid var(--border-light);
-}
-
-.intro-stage {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
-    gap: 64px;
-    align-items: center;
-}
-
-.intro-copy {
-    min-width: 0;
-}
-
 .eyebrow,
 .section-index {
     margin-bottom: 14px;
@@ -277,228 +260,226 @@ select {
     letter-spacing: 0;
 }
 
-.intro-copy h1 {
-    margin-bottom: 18px;
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    line-height: 1.5;
-}
-
-.intro-statement {
-    max-width: 820px;
-    margin-bottom: 26px;
-    color: var(--text-color);
-    font-size: 3.55rem;
-    font-weight: 700;
-    line-height: 1.28;
-}
-
-.intro-description {
-    max-width: 720px;
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 2;
-}
-
-.intro-section {
+.orbit-hero {
     position: relative;
     min-height: calc(100svh - 72px);
     overflow: hidden;
-    padding: 76px 0 42px;
-    background: #f8fbfb;
+    isolation: isolate;
+    background-color: #f7fbfb;
+    background-image:
+        linear-gradient(rgba(11, 111, 122, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11, 111, 122, 0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+    border-bottom: 1px solid var(--border-light);
 }
 
-.intro-section .page-shell {
-    position: relative;
-    z-index: 1;
-}
-
-.intro-stage {
-    display: block;
-    min-height: 470px;
-    padding: 48px 0 42px;
-}
-
-.intro-copy {
+.orbit-layout {
     position: relative;
     z-index: 2;
-    max-width: 650px;
-}
-
-.intro-name {
-    margin-bottom: 14px;
-    color: var(--text-secondary);
-    font-size: 1rem;
-    font-weight: 700;
-}
-
-.intro-copy h1 {
-    max-width: 700px;
-    margin-bottom: 28px;
-    color: var(--text-color);
-    font-size: clamp(3.4rem, 5.8vw, 5.4rem);
-    font-weight: 700;
-    letter-spacing: -0.055em;
-    line-height: 1.18;
-}
-
-.intro-description {
-    max-width: 610px;
-    font-size: 1rem;
-    line-height: 1.95;
-}
-
-.intro-description span {
-    display: block;
-}
-
-.intro-method {
     display: flex;
-    max-width: 560px;
+    min-height: calc(100svh - 72px);
     align-items: center;
-    gap: 10px;
-    margin-top: 24px;
-    color: var(--primary-color);
-    font-size: 0.67rem;
+    padding: 64px 0;
+}
+
+.orbit-identity {
+    position: relative;
+    z-index: 2;
+    width: min(520px, 46vw);
+}
+
+.orbit-identity h1 {
+    margin-bottom: 12px;
+    color: var(--text-color);
+    font-size: clamp(3.4rem, 6.4vw, 6.2rem);
     font-weight: 700;
-    letter-spacing: 0.09em;
+    letter-spacing: -0.06em;
+    line-height: 1.08;
 }
 
-.intro-method i {
-    width: 26px;
-    height: 1px;
-    background: var(--border-color);
-}
-
-.hero-geometry {
-    --geometry-opacity: 1;
-    position: absolute;
-    top: 38px;
-    right: max(12px, calc((100vw - 1260px) / 2));
-    width: min(54vw, 720px);
+.orbit-role {
     color: var(--primary-color);
-    opacity: var(--geometry-opacity);
-    pointer-events: none;
+    font-size: 1.05rem;
+    font-weight: 700;
 }
 
-.hero-geometry svg {
+.orbit-summary {
+    max-width: 500px;
+    margin-top: 18px;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.85;
+}
+
+.orbit-tech {
+    display: grid;
+    gap: 7px;
+    max-width: 500px;
+    margin-top: 24px;
+    list-style: none;
+}
+
+.orbit-tech li {
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    min-height: 38px;
+    padding: 7px 12px;
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid rgba(11, 111, 122, 0.14);
+    border-radius: 5px;
+    backdrop-filter: blur(4px);
+}
+
+.orbit-tech span {
+    color: var(--primary-color);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.orbit-tech strong {
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+}
+
+.orbit-canvas {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 78%;
+    width: min(78vmin, 780px);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
+.orbit-canvas svg {
     display: block;
     width: 100%;
     height: auto;
     overflow: visible;
 }
 
-.geometry-orbit,
-.geometry-route,
-.geometry-node > * {
+.orbit-line,
+.orbit-shape,
+.signal-halo,
+.signal-dot,
+.core-frame,
+.core-cell,
+.core-dot,
+.orbit-axis {
     vector-effect: non-scaling-stroke;
 }
 
-.geometry-orbit {
+.orbit-line {
     fill: none;
-    stroke: #cfe1e3;
-    stroke-width: 1;
+    stroke: rgba(11, 111, 122, 0.34);
+    stroke-width: 2;
 }
 
-.geometry-orbit-inner {
-    stroke-dasharray: 5 10;
+.orbit-line-dashed {
+    stroke: rgba(49, 88, 165, 0.4);
+    stroke-dasharray: 9 13;
 }
 
-.geometry-route {
-    fill: none;
+.orbit-shape {
+    fill: #f7fbfb;
     stroke: var(--primary-color);
-    stroke-linecap: round;
     stroke-width: 3;
 }
 
-.geometry-node {
-    fill: #f8fbfb;
-    stroke: var(--primary-color);
+.orbit-shape-square {
+    stroke: var(--secondary-color);
+}
+
+.orbit-shape-diamond {
+    stroke: var(--amber-color);
+}
+
+.signal-halo {
+    fill: none;
+    stroke: rgba(169, 102, 21, 0.38);
     stroke-width: 2;
-    transform-box: fill-box;
+}
+
+.signal-dot {
+    fill: var(--amber-color);
+}
+
+.core-frame {
+    fill: rgba(255, 255, 255, 0.8);
+    stroke: var(--primary-color);
+    stroke-width: 3;
+}
+
+.core-cell {
+    fill: var(--primary-color);
+    stroke: #f7fbfb;
+    stroke-width: 8;
+}
+
+.core-dot {
+    fill: #ffffff;
+}
+
+.orbit-axis {
+    fill: none;
+    stroke: rgba(11, 111, 122, 0.09);
+    stroke-dasharray: 2 16;
+    stroke-width: 1;
+}
+
+.orbit-motion {
+    transform-box: view-box;
     transform-origin: center;
 }
 
-.geometry-node > :last-child {
-    fill: var(--primary-color);
+.motion-ready .orbit-track-outer {
+    animation: orbit-clockwise 18s linear infinite;
+    animation-play-state: paused;
 }
 
-.geometry-node-three {
-    color: var(--secondary-color);
-    stroke: currentColor;
+.motion-ready .orbit-track-inner {
+    animation: orbit-counter 12s linear infinite;
+    animation-play-state: paused;
 }
 
-.geometry-node-three > :last-child {
-    fill: currentColor;
+.motion-ready .signal-rotor {
+    animation: orbit-clockwise 4.8s linear infinite;
+    animation-play-state: paused;
 }
 
-.geometry-node-four {
-    color: var(--amber-color);
-    stroke: currentColor;
+.motion-ready .orbit-hero.is-running .orbit-motion {
+    animation-play-state: running;
 }
 
-.geometry-node-four > :last-child {
-    fill: currentColor;
+@keyframes orbit-clockwise {
+    to { transform: rotate(360deg); }
 }
 
-.geometry-fragments {
-    fill: none;
-    stroke: #9bb9bd;
-    stroke-width: 2;
+@keyframes orbit-counter {
+    to { transform: rotate(-360deg); }
 }
 
-@keyframes geometry-draw {
-    from { stroke-dashoffset: 1; }
-    to { stroke-dashoffset: 0; }
+.orbit-status {
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
 }
 
-@keyframes geometry-pop {
-    from {
-        opacity: 0;
-        transform: scale(0.72) rotate(-12deg);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(0);
-    }
-}
-
-@keyframes geometry-fragments-in {
-    from {
-        opacity: 0;
-        transform: translateY(14px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.motion-ready .hero-geometry .geometry-route {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-}
-
-.motion-ready .hero-geometry .geometry-node,
-.motion-ready .hero-geometry .geometry-fragments {
-    opacity: 0;
-}
-
-.motion-ready .hero-geometry.is-visible .geometry-route {
-    animation: geometry-draw 1050ms cubic-bezier(0.65, 0, 0.35, 1) 180ms forwards;
-}
-
-.motion-ready .hero-geometry.is-visible .geometry-node {
-    animation: geometry-pop 480ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.motion-ready .hero-geometry.is-visible .geometry-node-one { animation-delay: 240ms; }
-.motion-ready .hero-geometry.is-visible .geometry-node-two { animation-delay: 500ms; }
-.motion-ready .hero-geometry.is-visible .geometry-node-three { animation-delay: 760ms; }
-.motion-ready .hero-geometry.is-visible .geometry-node-four { animation-delay: 1020ms; }
-
-.motion-ready .hero-geometry.is-visible .geometry-fragments {
-    animation: geometry-fragments-in 520ms ease 1180ms forwards;
+.orbit-status span {
+    width: 7px;
+    height: 7px;
+    background: var(--primary-color);
+    border-radius: 50%;
 }
 
 .button-row,
@@ -545,45 +526,6 @@ select {
 .button-secondary:hover {
     color: var(--primary-color);
     border-color: var(--primary-color);
-}
-
-.proof-strip {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: 64px;
-    color: #ffffff;
-    background: var(--bg-strong);
-    border-radius: 8px;
-}
-
-.proof-strip div {
-    min-width: 0;
-    padding: 24px 28px;
-}
-
-.proof-strip div + div {
-    border-left: 1px solid rgba(255, 255, 255, 0.16);
-}
-
-.proof-strip dt {
-    margin-bottom: 4px;
-    font-size: 1.23rem;
-    font-weight: 700;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-}
-
-.proof-strip dt span {
-    color: #71c4c9;
-}
-
-.proof-strip dt .count-value {
-    color: inherit;
-}
-
-.proof-strip dd {
-    color: #c9d6da;
-    font-size: 0.82rem;
 }
 
 .section-block {
@@ -942,10 +884,6 @@ select {
 .motion-ready .reveal-item.is-visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-.motion-ready .hero-geometry.reveal-item.is-visible {
-    opacity: var(--geometry-opacity);
 }
 
 .experience-layout {
@@ -1321,20 +1259,13 @@ select {
 }
 
 @media (max-width: 980px) {
-    .intro-stage {
-        display: block;
-        min-height: 430px;
+    .orbit-canvas {
+        left: 86%;
+        width: min(74vmin, 680px);
     }
 
-    .hero-geometry {
-        --geometry-opacity: 0.28;
-        top: 78px;
-        right: -190px;
-        width: 560px;
-    }
-
-    .intro-statement {
-        font-size: 2.9rem;
+    .orbit-identity {
+        width: min(470px, 52vw);
     }
 
     .experience-layout {
@@ -1418,32 +1349,6 @@ select {
         display: flex;
     }
 
-    .intro-section {
-        min-height: auto;
-        padding: 68px 0 56px;
-        background: #f8fbfb;
-    }
-
-    .intro-stage {
-        min-height: 410px;
-        padding-top: 36px;
-    }
-
-    .hero-geometry {
-        --geometry-opacity: 0.2;
-        top: 74px;
-        right: -210px;
-        width: 520px;
-    }
-
-    .intro-statement {
-        font-size: 2.55rem;
-    }
-
-    .proof-strip {
-        display: none;
-    }
-
     .section-block {
         padding: 72px 0;
     }
@@ -1489,60 +1394,95 @@ select {
     }
 }
 
+@media (max-width: 700px) {
+    .orbit-hero {
+        min-height: auto;
+    }
+
+    .orbit-layout {
+        min-height: calc(100svh - 72px);
+        align-items: flex-start;
+        padding: 330px 0 30px;
+    }
+
+    .orbit-canvas {
+        top: 8px;
+        left: 50%;
+        width: min(72vw, 470px);
+        transform: translateX(-50%);
+    }
+
+    .orbit-identity {
+        width: min(620px, 100%);
+        padding: 32px 28px 26px;
+        background: rgba(247, 251, 251, 0.9);
+        border: 1px solid rgba(11, 111, 122, 0.12);
+        border-radius: 12px;
+    }
+
+    .orbit-identity h1 {
+        font-size: clamp(3rem, 10vw, 4.25rem);
+    }
+
+    .orbit-status {
+        display: none;
+    }
+
+}
+
 @media (max-width: 620px) {
-    .intro-section {
-        padding: 40px 0 30px;
+    .orbit-layout {
+        min-height: auto;
+        padding: 238px 0 22px;
     }
 
-    .intro-copy {
-        display: flex;
-        flex-direction: column;
+    .orbit-canvas {
+        top: 0;
+        width: min(76vw, 360px);
     }
 
-    .intro-copy h1 {
-        margin-bottom: 22px;
-        font-size: 2.55rem;
-        letter-spacing: -0.045em;
-        line-height: 1.22;
+    .orbit-identity {
+        padding: 28px 20px 20px;
+        border-radius: 10px;
     }
 
-    .intro-name {
+    .orbit-identity h1 {
+        margin-bottom: 8px;
+        font-size: 2.75rem;
+    }
+
+    .orbit-role {
+        font-size: 0.9rem;
+    }
+
+    .orbit-summary {
         display: none;
     }
 
-    .intro-statement {
-        font-size: 2rem;
+    .orbit-tech {
+        gap: 5px;
+        margin-top: 16px;
     }
 
-    .intro-description {
-        font-size: 0.91rem;
+    .orbit-tech li {
+        grid-template-columns: 50px minmax(0, 1fr);
+        min-height: 34px;
+        padding: 5px 9px;
     }
 
-    .intro-description .intro-school {
-        display: none;
+    .orbit-tech strong {
+        font-size: 0.68rem;
     }
 
-    .intro-method {
-        order: 2;
-        gap: 7px;
-        margin-top: 20px;
-        font-size: 0.57rem;
-        letter-spacing: 0.05em;
+    .orbit-identity .button-row {
+        margin-top: 16px;
     }
 
-    .intro-method i {
-        width: 12px;
-    }
-
-    .intro-copy .button-row {
-        order: 1;
-        margin-top: 24px;
-    }
-
-    .intro-copy .button-row .button {
+    .orbit-identity .button {
         flex: 1 1 calc(50% - 6px);
-        padding-right: 12px;
-        padding-left: 12px;
+        min-height: 42px;
+        padding: 8px 10px;
+        font-size: 0.78rem;
     }
 
     .work-cover,
@@ -1648,16 +1588,20 @@ select {
 }
 
 @media (max-width: 360px) {
-    .intro-copy .button-row .button {
-        flex-basis: 100%;
+    .orbit-layout {
+        padding-top: 218px;
     }
 
-    .intro-copy h1 {
-        font-size: 2.2rem;
+    .orbit-canvas {
+        width: 270px;
     }
 
-    .intro-method {
-        flex-wrap: wrap;
+    .orbit-identity h1 {
+        font-size: 2.45rem;
+    }
+
+    .orbit-identity .button {
+        font-size: 0.72rem;
     }
 }
 
@@ -1680,21 +1624,9 @@ select {
         transform: none;
     }
 
-    .motion-ready .hero-geometry,
-    .motion-ready .hero-geometry .geometry-route,
-    .motion-ready .hero-geometry .geometry-node,
-    .motion-ready .hero-geometry .geometry-fragments {
+    .motion-ready .orbit-motion {
         animation: none !important;
-        opacity: 1;
         transform: none;
-    }
-
-    .motion-ready .hero-geometry .geometry-route {
-        stroke-dashoffset: 0;
-    }
-
-    .motion-ready .hero-geometry {
-        opacity: var(--geometry-opacity);
     }
 
     ::view-transition-old(root),

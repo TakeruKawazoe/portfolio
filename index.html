@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="川添偉生の就職活動向けポートフォリオ。長期インターンでの業務改善、教師あり機械学習、チーム開発の経験を紹介します。">
     <meta property="og:title" content="川添 偉生 | ITエンジニア ポートフォリオ">
-    <meta property="og:description" content="業務課題を、使われ続ける仕組みに変える。2028年卒のITエンジニア志望です。">
+    <meta property="og:description" content="長期インターンでの業務改善と、機械学習・Web開発の制作物を紹介する2028年卒のポートフォリオです。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://takerukawazoe.github.io/portfolio/">
     <meta property="og:image" content="https://takerukawazoe.github.io/portfolio/images/ml-helpdesk-dashboard.png">
     <meta name="twitter:card" content="summary_large_image">
     <title>川添 偉生 | ITエンジニア ポートフォリオ</title>
     <script>document.documentElement.classList.add("js");</script>
-    <link rel="stylesheet" href="./style.css?v=15">
+    <link rel="stylesheet" href="./style.css?v=19">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body class="career-page">
@@ -30,85 +30,106 @@
                 <span></span>
             </button>
             <nav id="global-navigation" class="global-nav" aria-label="メインナビゲーション">
+                <a href="#profile">プロフィール</a>
                 <a href="#projects">プロジェクト</a>
                 <a href="#experience">実務経験</a>
                 <a href="#skills">スキル</a>
-                <a href="#profile">プロフィール</a>
                 <a class="nav-contact" href="#contact">連絡先</a>
             </nav>
         </div>
     </header>
 
     <main id="main-content">
-        <section id="home" class="intro-section" aria-labelledby="intro-title">
-            <div class="hero-geometry" aria-hidden="true">
-                <svg viewBox="0 0 720 620" focusable="false">
-                    <circle class="geometry-orbit geometry-orbit-outer" cx="370" cy="310" r="250"></circle>
-                    <circle class="geometry-orbit geometry-orbit-inner" cx="370" cy="310" r="166"></circle>
-                    <path class="geometry-route" pathLength="1" d="M116 404 C196 488 274 432 318 336 C361 244 438 184 598 218"></path>
-                    <g class="geometry-node geometry-node-one">
-                        <circle cx="116" cy="404" r="34"></circle>
-                        <circle cx="116" cy="404" r="8"></circle>
+        <section id="home" class="orbit-hero" aria-labelledby="hero-name">
+            <div class="orbit-canvas" aria-hidden="true">
+                <svg viewBox="0 0 800 800" focusable="false">
+                    <g class="orbit-motion orbit-track orbit-track-outer">
+                        <circle class="orbit-line" cx="400" cy="400" r="292"></circle>
+                        <circle class="orbit-shape orbit-shape-circle" cx="400" cy="108" r="20"></circle>
+                        <rect class="orbit-shape orbit-shape-square" x="672" y="380" width="40" height="40" rx="8"></rect>
+                        <polygon class="orbit-shape orbit-shape-diamond" points="400,670 430,700 400,730 370,700"></polygon>
                     </g>
-                    <g class="geometry-node geometry-node-two">
-                        <rect x="282" y="300" width="72" height="72" rx="12"></rect>
-                        <rect x="307" y="325" width="22" height="22" rx="4"></rect>
+                    <g class="orbit-motion orbit-track orbit-track-inner">
+                        <circle class="orbit-line orbit-line-dashed" cx="400" cy="400" r="194"></circle>
+                        <rect class="orbit-shape orbit-shape-square" x="382" y="188" width="36" height="36" rx="7"></rect>
+                        <circle class="orbit-shape orbit-shape-circle" cx="400" cy="594" r="18"></circle>
                     </g>
-                    <g class="geometry-node geometry-node-three">
-                        <polygon points="470,156 514,200 470,244 426,200"></polygon>
-                        <circle cx="470" cy="200" r="9"></circle>
+                    <g class="orbit-motion signal-rotor">
+                        <circle class="signal-halo" cx="400" cy="108" r="29"></circle>
+                        <circle class="signal-dot" cx="400" cy="108" r="9"></circle>
                     </g>
-                    <g class="geometry-node geometry-node-four">
-                        <circle cx="598" cy="218" r="48"></circle>
-                        <circle cx="598" cy="218" r="29"></circle>
-                        <circle cx="598" cy="218" r="8"></circle>
+                    <g class="orbit-motion system-core">
+                        <rect class="core-frame" x="326" y="326" width="148" height="148" rx="30"></rect>
+                        <rect class="core-cell" x="365" y="365" width="70" height="70" rx="13"></rect>
+                        <circle class="core-dot" cx="400" cy="400" r="13"></circle>
                     </g>
-                    <g class="geometry-fragments">
-                        <rect x="566" y="430" width="14" height="14" rx="3"></rect>
-                        <circle cx="224" cy="166" r="7"></circle>
-                        <path d="M234 506 L250 478 L266 506 Z"></path>
-                    </g>
+                    <path class="orbit-axis" d="M400 42 V758 M42 400 H758"></path>
                 </svg>
             </div>
-            <div class="page-shell">
-                <div class="intro-stage">
-                    <div class="intro-copy">
-                        <p class="eyebrow">就職活動ポートフォリオ / 2028年卒</p>
-                        <p class="intro-name">川添 偉生</p>
-                        <h1 id="intro-title">人の声から、<br>使われ続ける仕組みへ。</h1>
-                        <p class="intro-description">
-                            <span class="intro-school">日本工学院八王子専門学校 ITスペシャリスト科3年。</span>
-                            <span>Python・JavaScriptを使い、課題整理から実装・テスト・運用改善まで取り組む、システム・Webエンジニア志望です。</span>
-                        </p>
-                        <p class="intro-method"><span>LISTEN</span><i></i><span>DEFINE</span><i></i><span>BUILD</span><i></i><span>IMPROVE</span></p>
-                        <div class="button-row" aria-label="主要リンク">
-                            <a class="button button-primary" href="#projects">制作物を見る</a>
-                            <a class="button button-secondary" href="https://github.com/TakeruKawazoe" target="_blank" rel="noopener noreferrer" aria-label="GitHub（新しいタブで開く）">GitHub</a>
-                        </div>
+            <div class="page-shell orbit-layout">
+                <div class="orbit-identity">
+                    <p class="eyebrow">PORTFOLIO / 2028 GRADUATE</p>
+                    <h1 id="hero-name">川添 偉生</h1>
+                    <p class="orbit-role">システムエンジニア / Webエンジニア志望</p>
+                    <p class="orbit-summary">長期インターンで、社内システムの要件整理から実装・テスト・運用改善まで担当しています。</p>
+                    <ul class="orbit-tech" aria-label="主要技術">
+                        <li><span>WORK</span><strong>JavaScript / GAS / Slack API</strong></li>
+                        <li><span>BUILD</span><strong>Python / scikit-learn / SQLite</strong></li>
+                    </ul>
+                    <div class="button-row" aria-label="主要リンク">
+                        <a class="button button-primary" href="#profile">プロフィールを見る</a>
+                        <a class="button button-secondary" href="#projects">制作物を見る</a>
                     </div>
                 </div>
+                <p class="orbit-status" aria-hidden="true"><span></span> LIVE SYSTEM / CONTINUOUS MOTION</p>
+            </div>
+        </section>
 
-                <dl class="proof-strip" aria-label="実績サマリー">
-                    <div>
-                        <dt>約<span class="count-value" data-count-to="20">20</span>時間 <span>→</span> 約<span class="count-value" data-count-to="30">30</span>分</dt>
-                        <dd>月間業務工数を削減</dd>
+        <section id="profile" class="section-block section-toned profile-section" aria-labelledby="profile-title">
+            <div class="page-shell profile-layout">
+                <figure class="profile-photo-frame">
+                    <img src="./images/profile.jpg" width="699" height="559" loading="lazy" decoding="async" alt="川添偉生のプロフィール写真">
+                </figure>
+                <div class="profile-copy">
+                    <p class="section-index">01 / PROFILE</p>
+                    <h2 id="profile-title">プロフィール</h2>
+                    <p class="profile-intro">
+                        総務・人事の実務を経験し、利用者の手作業を社内システムで改善してきました。
+                        気になったことを最後まで調べ、運用できる仕組みに落とし込むことが得意です。
+                    </p>
+                    <dl class="profile-facts">
+                        <div>
+                            <dt>所属</dt>
+                            <dd>日本工学院八王子専門学校 情報科学専門課程 ITスペシャリスト科</dd>
+                        </div>
+                        <div>
+                            <dt>卒業予定</dt>
+                            <dd>2028年3月</dd>
+                        </div>
+                        <div>
+                            <dt>志望職種</dt>
+                            <dd>システムエンジニア / Webエンジニア</dd>
+                        </div>
+                        <div>
+                            <dt>活動</dt>
+                            <dd>JANOG若者支援プログラム参加、Interop Tokyo 2025参加</dd>
+                        </div>
+                    </dl>
+                    <div class="career-vision">
+                        <h3>目指すエンジニア像</h3>
+                        <p>
+                            まずは実装・テスト・運用を通じて確かな技術力を身につけ、将来は利用者の課題を整理し、
+                            要件定義や設計から解決を導けるシステムエンジニアを目指しています。
+                        </p>
                     </div>
-                    <div>
-                        <dt>ML Helpdesk Triage</dt>
-                        <dd>Python・機械学習の代表作</dd>
-                    </div>
-                    <div>
-                        <dt>基本情報技術者</dt>
-                        <dd>基礎知識を資格でも証明</dd>
-                    </div>
-                </dl>
+                </div>
             </div>
         </section>
 
         <section id="projects" class="section-block projects-section" aria-labelledby="projects-title">
             <div class="page-shell">
                 <header class="section-heading">
-                    <p class="section-index">01 / SELECTED WORK</p>
+                    <p class="section-index">02 / SELECTED WORK</p>
                     <h2 id="projects-title">制作物</h2>
                     <p>概要を比較し、気になった制作物を選ぶと、課題・設計・成果の詳細を確認できます。</p>
                 </header>
@@ -191,7 +212,7 @@
         <section id="experience" class="section-block section-toned" aria-labelledby="experience-title">
             <div class="page-shell">
                 <header class="section-heading">
-                    <p class="section-index">02 / EXPERIENCE</p>
+                    <p class="section-index">03 / EXPERIENCE</p>
                     <h2 id="experience-title">実務経験</h2>
                     <p>言われた機能を作るだけでなく、現場を理解して改善案を考え、運用まで責任を持つことを学びました。</p>
                 </header>
@@ -245,7 +266,7 @@
         <section id="approach" class="section-block" aria-labelledby="approach-title">
             <div class="page-shell">
                 <header class="section-heading">
-                    <p class="section-index">03 / HOW I WORK</p>
+                    <p class="section-index">04 / HOW I WORK</p>
                     <h2 id="approach-title">開発で大切にしていること</h2>
                     <p>技術を目的にせず、利用者と運用の双方に価値が残る進め方を意識しています。</p>
                 </header>
@@ -278,7 +299,7 @@
         <section id="skills" class="section-block section-toned" aria-labelledby="skills-title">
             <div class="page-shell">
                 <header class="section-heading">
-                    <p class="section-index">04 / SKILLS</p>
+                    <p class="section-index">05 / SKILLS</p>
                     <h2 id="skills-title">技術と経験</h2>
                     <p>業務システム、機械学習、Web品質の3領域を、技術名だけでなく実装した課題と結び付けて示しています。</p>
                 </header>
@@ -352,47 +373,6 @@
             </div>
         </section>
 
-        <section id="profile" class="section-block profile-section" aria-labelledby="profile-title">
-            <div class="page-shell profile-layout">
-                <figure class="profile-photo-frame">
-                    <img src="./images/profile.jpg" width="699" height="559" loading="lazy" decoding="async" alt="川添偉生のプロフィール写真">
-                </figure>
-                <div class="profile-copy">
-                    <p class="section-index">05 / PROFILE</p>
-                    <h2 id="profile-title">プロフィール</h2>
-                    <p class="profile-intro">
-                        気になったことを最後まで調べ、仕組みに落とし込むことが得意です。
-                        周囲からは、誰とでも打ち解けられる気さくで明るい性格だと言われます。
-                    </p>
-                    <dl class="profile-facts">
-                        <div>
-                            <dt>所属</dt>
-                            <dd>日本工学院八王子専門学校 情報科学専門課程 ITスペシャリスト科</dd>
-                        </div>
-                        <div>
-                            <dt>卒業予定</dt>
-                            <dd>2028年3月</dd>
-                        </div>
-                        <div>
-                            <dt>志望職種</dt>
-                            <dd>システムエンジニア / Webエンジニア</dd>
-                        </div>
-                        <div>
-                            <dt>活動</dt>
-                            <dd>JANOG若者支援プログラム参加、Interop Tokyo 2025参加</dd>
-                        </div>
-                    </dl>
-                    <div class="career-vision">
-                        <h3>目指すエンジニア像</h3>
-                        <p>
-                            まずは実装・テスト・運用を通じて確かな技術力を身につけ、将来は利用者の課題を整理し、
-                            要件定義や設計から解決を導けるシステムエンジニアを目指しています。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="contact" class="contact-section" aria-labelledby="contact-title">
             <div class="page-shell contact-layout">
                 <div>
@@ -415,7 +395,7 @@
         </div>
     </footer>
 
-    <script src="./motion.js?v=3"></script>
+    <script src="./motion.js?v=5"></script>
     <script src="./script.js?v=4"></script>
 </body>
 </html>

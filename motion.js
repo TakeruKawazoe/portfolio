@@ -1,9 +1,7 @@
 const reducedMotionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const revealSelectors = [
-    ".intro-copy > *",
-    ".hero-geometry",
-    ".proof-strip > div",
+    ".orbit-identity > *",
     ".section-heading > *",
     ".work-card",
     ".experience-summary",
@@ -135,14 +133,51 @@ function setupCountAnimations() {
     countItems.forEach((item) => countObserver.observe(item));
 }
 
-setupRevealAnimations();
-setupCountAnimations();
+const orbitHero = document.querySelector(".orbit-hero");
+let orbitIsVisible = false;
 
-reducedMotionMedia.addEventListener("change", (event) => {
-    if (!event.matches) {
+function syncOrbitMotion() {
+    if (!orbitHero) {
         return;
     }
 
-    showAllRevealItems();
-    document.querySelectorAll("[data-count-to]").forEach(setFinalCount);
+    const shouldRun = orbitIsVisible
+        && !document.hidden
+        && !reducedMotionMedia.matches;
+
+    orbitHero.classList.toggle("is-running", shouldRun);
+}
+
+function setupOrbitMotion() {
+    if (!orbitHero) {
+        return;
+    }
+
+    document.addEventListener("visibilitychange", syncOrbitMotion);
+
+    if (!("IntersectionObserver" in window)) {
+        orbitIsVisible = true;
+        syncOrbitMotion();
+        return;
+    }
+
+    const orbitObserver = new IntersectionObserver(([entry]) => {
+        orbitIsVisible = entry.isIntersecting;
+        syncOrbitMotion();
+    }, { threshold: 0.15 });
+
+    orbitObserver.observe(orbitHero);
+}
+
+setupRevealAnimations();
+setupCountAnimations();
+setupOrbitMotion();
+
+reducedMotionMedia.addEventListener("change", (event) => {
+    if (event.matches) {
+        showAllRevealItems();
+        document.querySelectorAll("[data-count-to]").forEach(setFinalCount);
+    }
+
+    syncOrbitMotion();
 });
