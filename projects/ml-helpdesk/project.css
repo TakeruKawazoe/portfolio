@@ -879,7 +879,7 @@
         white-space: nowrap;
     }
     .detail-nav-links > a:not(.detail-back-link) { display: block; }
-    .detail-nav-links .detail-back-link { padding: 7px 10px; font-size: 0.8rem; }
+    .detail-nav-links .detail-back-link { order: -1; padding: 7px 10px; font-size: 0.8rem; }
     .project-detail-page #main-content,
     .project-detail-page section[id] { scroll-margin-top: 112px; }
     .detail-hero { padding: 48px 0 54px; }

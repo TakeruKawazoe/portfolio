@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="所持金・体力・空腹度から休日の行動候補を提案する、Power Apps製のルールベース意思決定支援アプリの開発事例です。">
+    <meta property="og:title" content="AI Decision Maker | 川添 偉生 ポートフォリオ">
+    <meta property="og:description" content="条件に合う候補の抽出とCRUD管理を実装し、利用者が自分で候補を更新できるようにしたローコード開発事例です。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://takerukawazoe.github.io/portfolio/projects/ai-decision-maker/">
+    <title>AI Decision Maker | Takeru Kawazoe Portfolio</title>
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="../../style.css?v=15">
+    <link rel="stylesheet" href="../ml-helpdesk/project.css?v=5">
+    <link rel="stylesheet" href="../work-detail.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="project-detail-page work-detail-page">
+    <a class="skip-link" href="#main-content">本文へ移動</a>
+    <nav class="detail-navbar" aria-label="プロジェクトナビゲーション">
+        <a class="detail-brand" href="../../index.html">Takeru Kawazoe</a>
+        <div class="detail-nav-links">
+            <a href="#overview">概要</a><a href="#logic">ロジック</a><a href="#ux">UI・運用</a><a class="detail-back-link" href="../../index.html#projects">Worksへ戻る</a>
+        </div>
+    </nav>
+
+    <header class="detail-hero">
+        <div class="detail-container detail-hero-grid">
+            <div class="detail-hero-copy">
+                <p class="detail-eyebrow">RULE-BASED / LOW-CODE APPLICATION</p>
+                <h1>AI Decision Maker</h1>
+                <p class="detail-lead">情報が多くて休日の行動を決めにくいとき、現在の所持金・体力・空腹度に合う候補をすぐに選べる意思決定支援アプリです。</p>
+                <dl class="detail-quick-facts" aria-label="プロジェクト要約">
+                    <div><dt>開発形態</dt><dd>個人開発</dd></div><div><dt>方式</dt><dd>ルールベースの条件抽出</dd></div><div><dt>担当範囲</dt><dd>要件・データ設計・実装・デバッグ</dd></div><div><dt>データ</dt><dd>Excel Online</dd></div>
+                </dl>
+                <ul class="detail-tech-list" aria-label="使用技術"><li>Power Apps</li><li>Power Fx</li><li>Excel Online</li></ul>
+            </div>
+            <figure class="product-shot work-detail-visual decision-visual">
+                <div class="product-shot-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="work-visual-canvas" aria-hidden="true">
+                    <p class="work-visual-kicker">CONDITION → OPTION</p>
+                    <div class="detail-decision-inputs"><div><span>所持金</span><i></i></div><div><span>体力</span><i></i></div><div><span>空腹度</span><i></i></div></div>
+                    <div class="detail-decision-result"><small>TODAY'S OPTION</small><strong>いまの状態に合う行動を提案</strong></div>
+                </div>
+                <figcaption>3つの入力条件から候補を絞り込む</figcaption>
+            </figure>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="overview" class="case-section">
+            <div class="detail-container">
+                <p class="section-kicker">01 / OVERVIEW</p>
+                <h2>決断疲れを減らし、行動のきっかけを作る</h2>
+                <div class="overview-grid">
+                    <div><h3>解決したい課題</h3><p>選択肢が多いと、休日に何をするか決めるだけでも迷いが生じます。情報を増やすのではなく、その時の状態に合う候補を絞る方法を考えました。</p></div>
+                    <div><h3>作った仕組み</h3><p>所持金・体力・空腹度を入力すると条件に合う行動候補を抽出し、その中から一つを提案します。候補は利用者自身が追加・編集・削除できます。</p></div>
+                </div>
+                <dl class="project-facts"><div><dt>入力</dt><dd>所持金・体力・空腹度</dd></div><div><dt>出力</dt><dd>条件に合う行動候補</dd></div><div><dt>管理</dt><dd>候補のCRUD</dd></div><div><dt>基盤</dt><dd>Microsoft Power Platform</dd></div></dl>
+                <p class="evidence-note"><strong>名称について:</strong> 「AI Decision Maker」は制作物名です。生成AIや機械学習ではなく、Power Fxによるルールベースの条件抽出で動作します。</p>
+            </div>
+        </section>
+
+        <section id="logic" class="case-section case-section-muted">
+            <div class="detail-container">
+                <p class="section-kicker">02 / LOGIC</p>
+                <h2>入力から提案までを小さな処理へ分ける</h2>
+                <div class="feature-grid">
+                    <article class="feature-item"><span class="feature-number">01</span><h3>条件入力</h3><p>スライダーで所持金・体力・空腹度を入力し、その時の状態を短時間で指定できます。</p></article>
+                    <article class="feature-item"><span class="feature-number">02</span><h3>候補の抽出</h3><p>Filter関数で入力条件に合う行動候補だけを抽出します。</p></article>
+                    <article class="feature-item"><span class="feature-number">03</span><h3>一つを提案</h3><p>ShuffleとFirst関数を組み合わせ、抽出した候補から一つを表示します。</p></article>
+                    <article class="feature-item"><span class="feature-number">04</span><h3>候補の追加</h3><p>利用者が新しい行動パターンと条件を登録できます。</p></article>
+                    <article class="feature-item"><span class="feature-number">05</span><h3>編集・削除</h3><p>候補を使いながら内容や条件を見直し、不要な候補を削除できます。</p></article>
+                    <article class="feature-item"><span class="feature-number">06</span><h3>データ連携</h3><p>Excel Onlineをデータ保存先として接続し、候補を一覧で管理します。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section architecture-section" aria-labelledby="flow-title">
+            <div class="detail-container">
+                <p class="section-kicker section-kicker-light">03 / FLOW</p>
+                <h2 id="flow-title">意思決定の流れ</h2>
+                <div class="architecture-flow" aria-label="条件入力、候補抽出、候補選択、結果表示の順に進む処理">
+                    <div class="architecture-node"><span class="architecture-label">INPUT</span><strong>3つの状態</strong><small>所持金・体力・空腹度</small></div><span class="architecture-arrow" aria-hidden="true">→</span><div class="architecture-node architecture-node-accent"><span class="architecture-label">FILTER</span><strong>条件抽出</strong><small>Power Fx</small></div><span class="architecture-arrow" aria-hidden="true">→</span><div class="architecture-stack"><div class="architecture-node"><span class="architecture-label">SELECT</span><strong>Shuffle / First</strong><small>候補を一つ選ぶ</small></div><div class="architecture-node"><span class="architecture-label">OUTPUT</span><strong>行動を提案</strong><small>すぐに確認</small></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ux" class="case-section">
+            <div class="detail-container">
+                <p class="section-kicker">04 / UI &amp; OPERATIONS</p>
+                <h2>使う人が候補を育てられる設計</h2>
+                <div class="decision-list">
+                    <article><h3>新規作成と編集を統合</h3><p>varModeとPatch関数を使い、候補の新規作成と編集を同じ画面で扱えるようにしました。</p></article>
+                    <article><h3>処理状態を伝える</h3><p>処理中の表示や保存完了の通知を用意し、操作を受け付けたか判断できるようにしました。</p></article>
+                    <article><h3>利用者が保守できる</h3><p>提案ロジックを固定したままにせず、利用者が自分で候補と条件を更新できる管理画面を設けました。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-cta"><div class="detail-container project-cta-inner"><div><h2>ほかの制作物を見る</h2><p>実務の業務改善、機械学習Webアプリ、チームでのデータ分析も掲載しています。</p></div><div class="detail-actions"><a class="detail-button detail-button-on-dark" href="../../index.html#projects">Worksへ戻る</a></div></div></section>
+    </main>
+
+    <footer class="detail-footer"><div class="detail-container"><p>&copy; 2026 川添 偉生 (Takeru Kawazoe). All Rights Reserved.</p></div></footer>
+    <script src="../../motion.js?v=3"></script>
+</body>
+</html>

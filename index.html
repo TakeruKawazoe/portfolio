@@ -12,7 +12,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>川添 偉生 | ITエンジニア ポートフォリオ</title>
     <script>document.documentElement.classList.add("js");</script>
-    <link rel="stylesheet" href="./style.css?v=13">
+    <link rel="stylesheet" href="./style.css?v=15">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body class="career-page">
@@ -41,62 +41,61 @@
 
     <main id="main-content">
         <section id="home" class="intro-section" aria-labelledby="intro-title">
+            <div class="hero-geometry" aria-hidden="true">
+                <svg viewBox="0 0 720 620" focusable="false">
+                    <circle class="geometry-orbit geometry-orbit-outer" cx="370" cy="310" r="250"></circle>
+                    <circle class="geometry-orbit geometry-orbit-inner" cx="370" cy="310" r="166"></circle>
+                    <path class="geometry-route" pathLength="1" d="M116 404 C196 488 274 432 318 336 C361 244 438 184 598 218"></path>
+                    <g class="geometry-node geometry-node-one">
+                        <circle cx="116" cy="404" r="34"></circle>
+                        <circle cx="116" cy="404" r="8"></circle>
+                    </g>
+                    <g class="geometry-node geometry-node-two">
+                        <rect x="282" y="300" width="72" height="72" rx="12"></rect>
+                        <rect x="307" y="325" width="22" height="22" rx="4"></rect>
+                    </g>
+                    <g class="geometry-node geometry-node-three">
+                        <polygon points="470,156 514,200 470,244 426,200"></polygon>
+                        <circle cx="470" cy="200" r="9"></circle>
+                    </g>
+                    <g class="geometry-node geometry-node-four">
+                        <circle cx="598" cy="218" r="48"></circle>
+                        <circle cx="598" cy="218" r="29"></circle>
+                        <circle cx="598" cy="218" r="8"></circle>
+                    </g>
+                    <g class="geometry-fragments">
+                        <rect x="566" y="430" width="14" height="14" rx="3"></rect>
+                        <circle cx="224" cy="166" r="7"></circle>
+                        <path d="M234 506 L250 478 L266 506 Z"></path>
+                    </g>
+                </svg>
+            </div>
             <div class="page-shell">
                 <div class="intro-stage">
                     <div class="intro-copy">
                         <p class="eyebrow">就職活動ポートフォリオ / 2028年卒</p>
-                        <h1 id="intro-title">川添 偉生</h1>
-                        <p class="intro-statement">業務課題を、<br>使われ続ける仕組みに変える。</p>
+                        <p class="intro-name">川添 偉生</p>
+                        <h1 id="intro-title">人の声から、<br>使われ続ける仕組みへ。</h1>
                         <p class="intro-description">
-                            日本工学院八王子専門学校 ITスペシャリスト科3年。
-                            実務のJavaScriptと個人開発のPythonで、課題整理から運用改善まで取り組んでいます。
+                            <span class="intro-school">日本工学院八王子専門学校 ITスペシャリスト科3年。</span>
+                            <span>Python・JavaScriptを使い、課題整理から実装・テスト・運用改善まで取り組む、システム・Webエンジニア志望です。</span>
                         </p>
+                        <p class="intro-method"><span>LISTEN</span><i></i><span>DEFINE</span><i></i><span>BUILD</span><i></i><span>IMPROVE</span></p>
                         <div class="button-row" aria-label="主要リンク">
-                            <a class="button button-primary" href="./projects/ml-helpdesk/">ML Helpdeskの詳細を見る</a>
+                            <a class="button button-primary" href="#projects">制作物を見る</a>
                             <a class="button button-secondary" href="https://github.com/TakeruKawazoe" target="_blank" rel="noopener noreferrer" aria-label="GitHub（新しいタブで開く）">GitHub</a>
                         </div>
                     </div>
-
-                    <aside class="hero-case" aria-labelledby="hero-case-title">
-                        <div class="hero-case-heading">
-                            <p>FEATURED PROJECT</p>
-                            <span><i aria-hidden="true"></i> HUMAN-IN-THE-LOOP</span>
-                        </div>
-                        <h2 id="hero-case-title">ML Helpdesk Triage</h2>
-                        <p class="hero-case-lead">低信頼度の予測は自動確定せず、人が確認できる業務フローとして設計。</p>
-                        <ol class="hero-flow">
-                            <li>
-                                <span>01</span>
-                                <p><strong>問い合わせ受付</strong><small>自由記述の相談内容を入力</small></p>
-                            </li>
-                            <li>
-                                <span>02</span>
-                                <p><strong>3項目をML予測</strong><small>カテゴリ・優先度・担当部署</small></p>
-                            </li>
-                            <li>
-                                <span>03</span>
-                                <p><strong>低信頼度のみ人が確認</strong><small>誤判定の影響を抑える設計</small></p>
-                            </li>
-                        </ol>
-                        <div class="hero-case-footer">
-                            <ul aria-label="使用技術">
-                                <li>Python</li>
-                                <li>scikit-learn</li>
-                                <li>SQLite</li>
-                            </ul>
-                            <a href="https://ml-helpdesk-triage-demo.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="ML Helpdesk Triageの公開デモ（新しいタブで開く）">公開デモ <span aria-hidden="true">↗</span></a>
-                        </div>
-                    </aside>
                 </div>
 
                 <dl class="proof-strip" aria-label="実績サマリー">
                     <div>
-                        <dt><span class="count-value" data-count-to="20">20</span>時間 <span>→</span> <span class="count-value" data-count-to="30">30</span>分</dt>
+                        <dt>約<span class="count-value" data-count-to="20">20</span>時間 <span>→</span> 約<span class="count-value" data-count-to="30">30</span>分</dt>
                         <dd>月間業務工数を削減</dd>
                     </div>
                     <div>
-                        <dt>要件整理 <span>→</span> 運用</dt>
-                        <dd>社内システムを一貫して担当</dd>
+                        <dt>ML Helpdesk Triage</dt>
+                        <dd>Python・機械学習の代表作</dd>
                     </div>
                     <div>
                         <dt>基本情報技術者</dt>
@@ -110,133 +109,81 @@
             <div class="page-shell">
                 <header class="section-heading">
                     <p class="section-index">01 / SELECTED WORK</p>
-                    <h2 id="projects-title">代表プロジェクト</h2>
-                    <p>実務と個人開発の中から、課題の発見、実装、運用改善まで説明できる取り組みを掲載しています。</p>
+                    <h2 id="projects-title">制作物</h2>
+                    <p>概要を比較し、気になった制作物を選ぶと、課題・設計・成果の詳細を確認できます。</p>
                 </header>
 
-                <div class="project-list">
-                    <article class="project-story project-story-ml">
-                        <div class="project-copy">
-                            <div class="project-meta">
-                                <span class="project-type project-type-personal">個人開発</span>
-                                <span>教師あり機械学習</span>
+                <div class="works-grid">
+                    <article class="work-card work-card-wide">
+                        <a href="./projects/ml-helpdesk/" aria-label="ML Helpdesk Triageの詳細を見る">
+                            <div class="work-cover work-cover-image">
+                                <img class="ml-project-image" src="./images/ml-helpdesk-dashboard.png" width="1440" height="1800" loading="lazy" decoding="async" alt="ML Helpdesk Triageの予測履歴画面">
+                                <span class="work-cover-label">MACHINE LEARNING / WEB APP</span>
                             </div>
-                            <h3 class="ml-project-title">ML Helpdesk Triage</h3>
-                            <p class="project-lead">
-                                社内問い合わせ文からカテゴリ・優先度・担当部署を予測し、低信頼度の結果だけを人の確認へ回す業務支援アプリです。
-                                認証、履歴、修正フィードバック、Notion・Slack連携まで実装しました。
-                            </p>
-                            <ul class="project-points">
-                                <li>TF-IDFと分類モデルを比較し、3項目を個別に予測</li>
-                                <li>誤判定の影響を抑える「要確認」判定を導入</li>
-                                <li>安全な公開デモでは外部連携と管理機能を無効化</li>
-                            </ul>
-                            <div class="tag-list" aria-label="使用技術">
-                                <span>Python</span>
-                                <span>scikit-learn</span>
-                                <span>SQLite</span>
-                                <span>Notion API</span>
-                                <span>Slack API</span>
+                            <div class="work-card-body">
+                                <div class="work-card-topline"><span>01</span><span>個人開発</span></div>
+                                <h3 class="ml-project-title">ML Helpdesk Triage</h3>
+                                <p>問い合わせの3項目を予測し、低信頼度だけ人の確認へ回す業務支援アプリ。</p>
+                                <ul class="work-tags" aria-label="使用技術"><li>Python</li><li>scikit-learn</li><li>SQLite</li></ul>
+                                <span class="work-card-link">詳しく見る <i aria-hidden="true">→</i></span>
                             </div>
-                            <div class="project-actions">
-                                <a class="text-link" href="./projects/ml-helpdesk/">事例を詳しく見る <span aria-hidden="true">→</span></a>
-                                <a class="text-link" href="https://ml-helpdesk-triage-demo.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="公開デモ（新しいタブで開く）">公開デモ <span aria-hidden="true">↗</span></a>
-                                <a class="text-link" href="https://github.com/TakeruKawazoe/ml-helpdesk-triage" target="_blank" rel="noopener noreferrer" aria-label="ML Helpdesk TriageのGitHub（新しいタブで開く）">GitHub <span aria-hidden="true">↗</span></a>
-                            </div>
-                            <p class="demo-note">停止後の初回起動には約1分かかります。公開デモの入力内容は再起動時に消去されます。</p>
-                        </div>
-                        <a class="product-preview" href="./projects/ml-helpdesk/" aria-label="ML Helpdesk Triageの詳細ページを見る">
-                            <img class="ml-project-image" src="./images/ml-helpdesk-dashboard.png" width="1440" height="1800" loading="lazy" decoding="async" alt="ML Helpdesk Triageの予測履歴画面">
-                            <span>認証・履歴・人による確認を備えたWebアプリ</span>
                         </a>
                     </article>
 
-                    <article class="project-story project-story-impact">
-                        <div class="project-copy">
-                            <div class="project-meta">
-                                <span class="project-type">実務</span>
-                                <span>社内業務改善</span>
+                    <article class="work-card">
+                        <a href="./projects/internship-system/" aria-label="勤怠・請求書統合管理システムの詳細を見る">
+                            <div class="work-cover work-cover-system" aria-hidden="true">
+                                <span class="work-cover-label">WORKFLOW / OPERATIONS</span>
+                                <div class="mini-system-flow"><b>Slack</b><i>→</i><b>GAS</b><i>→</i><b>Sheets</b></div>
+                                <strong><span>約20h</span><i>→</i><span>約30m</span></strong>
                             </div>
-                            <h3>勤怠・請求書統合管理システム</h3>
-                            <p class="project-lead">
-                                手作業で分散していた勤怠確認と請求処理を、Slack・Google Apps Script・Google Sheetsで統合しました。
-                                業務の整理から実装、テスト、運用改善、引き継ぎ資料の整備まで担当しています。
-                            </p>
-                            <ul class="project-points">
-                                <li>月間約20時間の作業を約30分へ削減</li>
-                                <li>ブラウザ上で改修できるGASを採用し、引き継ぎやすさを確保</li>
-                                <li>利用者のフィードバックを反映しながら継続改善</li>
-                            </ul>
-                            <div class="tag-list" aria-label="使用技術">
-                                <span>Google Apps Script</span>
-                                <span>JavaScript</span>
-                                <span>Slack API</span>
-                                <span>Google Sheets</span>
+                            <div class="work-card-body">
+                                <div class="work-card-topline"><span>02</span><span>実務</span></div>
+                                <h3>勤怠・請求書統合管理システム</h3>
+                                <p>Slack打刻、勤怠集計、請求書処理を統合し、月間作業を約20時間から約30分へ削減。</p>
+                                <ul class="work-tags" aria-label="使用技術"><li>GAS</li><li>Slack API</li><li>Google Sheets</li></ul>
+                                <span class="work-card-link">詳しく見る <i aria-hidden="true">→</i></span>
                             </div>
-                            <p class="confidential-note">守秘義務に配慮し、社名・画面・内部情報は非公開としています。</p>
-                        </div>
-                        <figure class="impact-figure" aria-label="月間業務工数を約20時間から約30分へ削減">
-                            <figcaption>月間業務工数</figcaption>
-                            <div class="impact-values">
-                                <div>
-                                    <small>改善前</small>
-                                    <strong>約20<span>時間</span></strong>
-                                </div>
-                                <span class="impact-arrow" aria-hidden="true">→</span>
-                                <div class="impact-after">
-                                    <small>改善後</small>
-                                    <strong>約30<span>分</span></strong>
-                                </div>
-                            </div>
-                            <p>転記・確認・集計を一つの業務フローへ統合</p>
-                        </figure>
+                        </a>
                     </article>
 
-                    <div class="compact-project-grid">
-                        <article class="compact-project">
-                            <div class="project-meta">
-                                <span class="project-type project-type-team">チーム開発</span>
-                                <span>データ分析</span>
+                    <article class="work-card">
+                        <a href="./projects/signate-jleague/" aria-label="SIGNATE Jリーグ観客動員数予測の詳細を見る">
+                            <div class="work-cover work-cover-chart" aria-hidden="true">
+                                <span class="work-cover-label">DATA ANALYSIS / TEAM</span>
+                                <svg viewBox="0 0 420 210" focusable="false">
+                                    <path d="M34 166 H390 M34 118 H390 M34 70 H390"></path>
+                                    <polyline points="46,46 378,162"></polyline>
+                                    <circle cx="46" cy="46" r="7"></circle><circle cx="378" cy="162" r="9"></circle>
+                                </svg>
+                                <div class="chart-value"><span>RMSE</span><strong>約4,200 → 約3,000</strong></div>
                             </div>
-                            <h3>SIGNATE Jリーグ観客動員数予測</h3>
-                            <p>
-                                4人チームのリーダーとして、Notionデータベースで担当、必要日数、進行状況を管理しました。
-                                チーム・スタジアム別の過去平均は学習データだけで算出してデータリークを防ぎ、天候・曜日の特徴量とRandom Forestなどを同じ条件で比較しました。
-                            </p>
-                            <div class="process-visual" aria-label="仮説、特徴量作成、モデル比較、本番提出の4工程">
-                                <span>仮説</span><span>特徴量</span><span>比較</span><span>提出</span>
+                            <div class="work-card-body">
+                                <div class="work-card-topline"><span>03</span><span>4人チーム</span></div>
+                                <h3>SIGNATE Jリーグ観客動員数予測</h3>
+                                <p>特徴量設計とモデル比較を担当し、チームのPrivate Leaderboardスコアを改善。</p>
+                                <ul class="work-tags" aria-label="使用技術"><li>Python</li><li>pandas</li><li>scikit-learn</li></ul>
+                                <span class="work-card-link">詳しく見る <i aria-hidden="true">→</i></span>
                             </div>
-                            <p class="project-result">本番提出のPrivate LeaderboardでRMSEを約<span class="count-value" data-count-to="4200" data-count-format="comma">4,200</span>から約<span class="count-value" data-count-to="3000" data-count-format="comma">3,000</span>へ改善</p>
-                            <div class="tag-list" aria-label="使用技術">
-                                <span>Python</span>
-                                <span>pandas</span>
-                                <span>scikit-learn</span>
-                                <span>Notion</span>
-                            </div>
-                        </article>
+                        </a>
+                    </article>
 
-                        <article class="compact-project">
-                            <div class="project-meta">
-                                <span class="project-type project-type-lowcode">個人開発</span>
-                                <span>ローコード</span>
+                    <article class="work-card work-card-wide">
+                        <a href="./projects/ai-decision-maker/" aria-label="AI Decision Makerの詳細を見る">
+                            <div class="work-cover work-cover-decision" aria-hidden="true">
+                                <span class="work-cover-label">RULE-BASED / LOW-CODE</span>
+                                <div class="decision-inputs"><span>所持金</span><span>体力</span><span>空腹度</span></div>
+                                <div class="decision-result"><small>TODAY'S OPTION</small><strong>条件に合う行動を提案</strong></div>
                             </div>
-                            <h3>AI Decision Maker</h3>
-                            <p>
-                                所持金・体力・空腹度から休日の行動候補を提案する意思決定支援アプリです。
-                                Excel Onlineと接続し、利用者が候補を追加・編集・削除できる運用画面まで設計しました。
-                            </p>
-                            <div class="crud-visual" aria-label="作成、参照、更新、削除のCRUD機能">
-                                <span>Create</span><span>Read</span><span>Update</span><span>Delete</span>
+                            <div class="work-card-body">
+                                <div class="work-card-topline"><span>04</span><span>個人開発</span></div>
+                                <h3>AI Decision Maker</h3>
+                                <p>所持金・体力・空腹度から休日の行動候補を選ぶ、ルールベースの意思決定支援アプリ。</p>
+                                <ul class="work-tags" aria-label="使用技術"><li>Power Apps</li><li>Power Fx</li><li>Excel Online</li></ul>
+                                <span class="work-card-link">詳しく見る <i aria-hidden="true">→</i></span>
                             </div>
-                            <p class="project-result">要件整理、データ設計、実装、デバッグを一人で完結</p>
-                            <div class="tag-list" aria-label="使用技術">
-                                <span>Power Apps</span>
-                                <span>Excel Online</span>
-                                <span>Power Fx</span>
-                                <span>UI/UX</span>
-                            </div>
-                        </article>
-                    </div>
+                        </a>
+                    </article>
                 </div>
             </div>
         </section>
@@ -468,7 +415,7 @@
         </div>
     </footer>
 
-    <script src="./motion.js?v=2"></script>
+    <script src="./motion.js?v=3"></script>
     <script src="./script.js?v=4"></script>
 </body>
 </html>

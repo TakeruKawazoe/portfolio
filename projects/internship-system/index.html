@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Slack、Google Apps Script、Google Sheetsで勤怠・請求書処理を統合し、月間作業を約20時間から約30分へ削減した実務事例です。">
+    <meta property="og:title" content="勤怠・請求書統合管理システム | 川添 偉生 ポートフォリオ">
+    <meta property="og:description" content="現場の業務理解から設計・実装・テスト・運用改善まで担当した社内業務改善の事例です。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://takerukawazoe.github.io/portfolio/projects/internship-system/">
+    <title>勤怠・請求書統合管理システム | Takeru Kawazoe Portfolio</title>
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="../../style.css?v=15">
+    <link rel="stylesheet" href="../ml-helpdesk/project.css?v=5">
+    <link rel="stylesheet" href="../work-detail.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="project-detail-page work-detail-page">
+    <a class="skip-link" href="#main-content">本文へ移動</a>
+    <nav class="detail-navbar" aria-label="プロジェクトナビゲーション">
+        <a class="detail-brand" href="../../index.html">Takeru Kawazoe</a>
+        <div class="detail-nav-links">
+            <a href="#overview">概要</a>
+            <a href="#features">実装</a>
+            <a href="#decisions">設計判断</a>
+            <a class="detail-back-link" href="../../index.html#projects">Worksへ戻る</a>
+        </div>
+    </nav>
+
+    <header class="detail-hero">
+        <div class="detail-container detail-hero-grid">
+            <div class="detail-hero-copy">
+                <p class="detail-eyebrow">BUSINESS SYSTEM / OPERATIONS</p>
+                <h1>勤怠・請求書<br>統合管理システム</h1>
+                <p class="detail-lead">総務の実務で見つけた手作業を、Slack・Google Apps Script・Google Sheetsで一つの業務フローへ統合しました。</p>
+                <dl class="detail-quick-facts" aria-label="プロジェクト要約">
+                    <div><dt>開発形態</dt><dd>長期インターンでの実務</dd></div>
+                    <div><dt>担当範囲</dt><dd>要件整理・設計・実装・テスト・運用</dd></div>
+                    <div><dt>成果</dt><dd>月間約20時間 → 約30分</dd></div>
+                    <div><dt>公開範囲</dt><dd>守秘義務に配慮した説明のみ</dd></div>
+                </dl>
+                <ul class="detail-tech-list" aria-label="使用技術">
+                    <li>Google Apps Script</li><li>JavaScript</li><li>Slack API</li><li>Google Sheets</li>
+                </ul>
+            </div>
+            <figure class="product-shot work-detail-visual ops-visual">
+                <div class="product-shot-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="work-visual-canvas" aria-hidden="true">
+                    <p class="work-visual-kicker">MONTHLY WORKFLOW</p>
+                    <div class="detail-system-flow"><span>Slack打刻</span><i>→</i><span>GAS処理</span><i>→</i><span>Sheets・PDF</span></div>
+                    <div class="detail-impact"><div><small>改善前</small><strong>約20時間</strong></div><span>→</span><div><small>改善後</small><strong>約30分</strong></div></div>
+                </div>
+                <figcaption>既存ツールを活用し、転記・計算・ファイル作成を統合</figcaption>
+            </figure>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="overview" class="case-section">
+            <div class="detail-container">
+                <p class="section-kicker">01 / OVERVIEW</p>
+                <h2>現場で経験した手作業を、仕組みから見直す</h2>
+                <div class="overview-grid">
+                    <div><h3>解決した課題</h3><p>打刻漏れの確認、稼働・休憩時間の計算、請求書ファイルの作成と命名に手作業が多く、総務担当者の確認・修正負荷が大きい状態でした。</p></div>
+                    <div><h3>自分の役割</h3><p>総務業務を自分でも担当して手順を整理し、必要機能の検討から設計、GASでの実装、テスト、導入後の改善まで一貫して担当しました。</p></div>
+                </div>
+                <dl class="project-facts">
+                    <div><dt>期間</dt><dd>2025年8月〜現在</dd></div><div><dt>対象</dt><dd>勤怠・請求書処理</dd></div><div><dt>連携</dt><dd>Slack / Google Workspace</dd></div><div><dt>体制</dt><dd>利用者・上司と連携</dd></div>
+                </dl>
+                <p class="evidence-note"><strong>公開上の配慮:</strong> 雇用契約と守秘義務に配慮し、企業名・実画面・社内データ・内部仕様は掲載していません。</p>
+            </div>
+        </section>
+
+        <section id="features" class="case-section case-section-muted">
+            <div class="detail-container">
+                <p class="section-kicker">02 / IMPLEMENTATION</p>
+                <h2>業務の流れに合わせて実装した機能</h2>
+                <div class="feature-grid">
+                    <article class="feature-item"><span class="feature-number">01</span><h3>Slack打刻</h3><p>Slackのスタンプ操作から出退勤を記録し、入力の起点を日常の業務ツールへまとめました。</p></article>
+                    <article class="feature-item"><span class="feature-number">02</span><h3>稼働・休憩時間の計算</h3><p>Google Sheets上で稼働時間と休憩時間を自動計算し、定型的な転記と集計を減らしました。</p></article>
+                    <article class="feature-item"><span class="feature-number">03</span><h3>手動修正の可視化</h3><p>人が修正したセルは自動で色を変え、確認が必要な箇所を見つけやすくしました。</p></article>
+                    <article class="feature-item"><span class="feature-number">04</span><h3>請求書PDF出力</h3><p>規定の命名規則に沿った請求書PDFを、1クリックで出力できるようにしました。</p></article>
+                    <article class="feature-item"><span class="feature-number">05</span><h3>同時操作への対策</h3><p>LockServiceで最大30秒の排他制御を行い、同時打刻による競合書き込みを防ぎます。</p></article>
+                    <article class="feature-item"><span class="feature-number">06</span><h3>運用・引き継ぎ</h3><p>設定の外部化と手順の文書化を進め、担当を離れても改善を続けられる状態を目指しました。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section architecture-section" aria-labelledby="flow-title">
+            <div class="detail-container">
+                <p class="section-kicker section-kicker-light">03 / FLOW</p>
+                <h2 id="flow-title">追加コストを抑えた構成</h2>
+                <p class="section-intro">社内で既に使われていたSlackとGoogle Workspaceを組み合わせ、利用環境・費用・保守性を優先しました。</p>
+                <div class="architecture-flow" aria-label="SlackからGoogle Apps Scriptを経由し、Google Sheetsと請求書PDFへ連携する構成">
+                    <div class="architecture-node"><span class="architecture-label">INPUT</span><strong>Slack</strong><small>打刻操作</small></div><span class="architecture-arrow" aria-hidden="true">→</span><div class="architecture-node architecture-node-accent"><span class="architecture-label">LOGIC</span><strong>Google Apps Script</strong><small>計算・排他制御</small></div><span class="architecture-arrow" aria-hidden="true">→</span><div class="architecture-stack"><div class="architecture-node"><span class="architecture-label">DATA</span><strong>Google Sheets</strong><small>記録・手動修正</small></div><div class="architecture-node"><span class="architecture-label">OUTPUT</span><strong>Invoice PDF</strong><small>命名・出力</small></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="decisions" class="case-section">
+            <div class="detail-container">
+                <p class="section-kicker">04 / DECISIONS</p>
+                <h2>利用者と運用を基準にした設計判断</h2>
+                <div class="decision-list">
+                    <article><h3>使い慣れた画面を残す</h3><p>総務担当者が日常的に使うGoogle Sheetsを残し、導入時の学習負荷と手動修正の負担を抑えました。</p></article>
+                    <article><h3>完全自動化に固執しない</h3><p>打刻漏れや例外は通知と手動修正で扱い、人が確認できる余地を残しました。</p></article>
+                    <article><h3>レビューしてから反映する</h3><p>Pull Requestで上司のコードレビューを受け、本番同等のテスト環境で確認してから本番へ反映しました。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-cta">
+            <div class="detail-container project-cta-inner">
+                <div><h2>ほかの制作物を見る</h2><p>個人開発、チームでのデータ分析、ローコード開発の事例も掲載しています。</p></div>
+                <div class="detail-actions"><a class="detail-button detail-button-on-dark" href="../../index.html#projects">Worksへ戻る</a></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="detail-footer"><div class="detail-container"><p>&copy; 2026 川添 偉生 (Takeru Kawazoe). All Rights Reserved.</p></div></footer>
+    <script src="../../motion.js?v=3"></script>
+</body>
+</html>

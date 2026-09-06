@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="4人チームでSIGNATEのJリーグ観客動員数予測に取り組み、特徴量設計とモデル比較を重ねたデータ分析事例です。">
+    <meta property="og:title" content="SIGNATE Jリーグ観客動員数予測 | 川添 偉生 ポートフォリオ">
+    <meta property="og:description" content="データリークを防ぎながら特徴量とモデルを比較し、チームのPrivate Leaderboard RMSEを改善した事例です。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://takerukawazoe.github.io/portfolio/projects/signate-jleague/">
+    <title>SIGNATE Jリーグ観客動員数予測 | Takeru Kawazoe Portfolio</title>
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="../../style.css?v=15">
+    <link rel="stylesheet" href="../ml-helpdesk/project.css?v=5">
+    <link rel="stylesheet" href="../work-detail.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="project-detail-page work-detail-page">
+    <a class="skip-link" href="#main-content">本文へ移動</a>
+    <nav class="detail-navbar" aria-label="プロジェクトナビゲーション">
+        <a class="detail-brand" href="../../index.html">Takeru Kawazoe</a>
+        <div class="detail-nav-links">
+            <a href="#overview">概要</a><a href="#analysis">分析</a><a href="#team">チーム</a><a class="detail-back-link" href="../../index.html#projects">Worksへ戻る</a>
+        </div>
+    </nav>
+
+    <header class="detail-hero">
+        <div class="detail-container detail-hero-grid">
+            <div class="detail-hero-copy">
+                <p class="detail-eyebrow">DATA ANALYSIS / TEAM PROJECT</p>
+                <h1 class="detail-long-title">SIGNATE<br><span>Jリーグ観客動員数予測</span></h1>
+                <p class="detail-lead">4人チームで特徴量設計とモデル比較に取り組み、仮説と計測結果を共有しながら予測誤差を改善しました。</p>
+                <dl class="detail-quick-facts" aria-label="プロジェクト要約">
+                    <div><dt>開発形態</dt><dd>4人チーム</dd></div><div><dt>役割</dt><dd>リーダー・特徴量設計・モデル比較</dd></div><div><dt>評価指標</dt><dd>RMSE</dd></div><div><dt>チーム結果</dt><dd>約4,200 → 約3,000</dd></div>
+                </dl>
+                <ul class="detail-tech-list" aria-label="使用技術"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>Random Forest</li><li>Notion</li></ul>
+            </div>
+            <figure class="product-shot work-detail-visual data-visual">
+                <div class="product-shot-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="work-visual-canvas" aria-hidden="true">
+                    <p class="work-visual-kicker">PRIVATE LEADERBOARD / RMSE</p>
+                    <svg viewBox="0 0 440 220" focusable="false"><path d="M26 186 H414 M26 132 H414 M26 78 H414"></path><polyline points="38,46 402,176"></polyline><circle cx="38" cy="46" r="7"></circle><circle cx="402" cy="176" r="9"></circle></svg>
+                    <div class="data-score"><span>TEAM RESULT</span><strong>約4,200 → 約3,000</strong></div>
+                </div>
+                <figcaption>同じ評価条件で特徴量とモデルを比較</figcaption>
+            </figure>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="overview" class="case-section">
+            <div class="detail-container">
+                <p class="section-kicker">01 / OVERVIEW</p>
+                <h2>仮説を立て、同じ条件で比較する</h2>
+                <div class="overview-grid">
+                    <div><h3>取り組んだ課題</h3><p>Jリーグの試合情報から観客動員数を予測するデータ分析コンペティションへ参加し、予測誤差を小さくする特徴量とモデルを検討しました。</p></div>
+                    <div><h3>自分の担当</h3><p>リーダーとしてタスクを分け、主に特徴量設計とモデル比較を担当しました。Notionデータベースで担当、必要日数、進行状況を管理し、改善を進めました。</p></div>
+                </div>
+                <dl class="project-facts"><div><dt>対象</dt><dd>Jリーグ観客動員数</dd></div><div><dt>指標</dt><dd>RMSE</dd></div><div><dt>モデル</dt><dd>Random Forestなど</dd></div><div><dt>成果</dt><dd>チームのPrivate LB</dd></div></dl>
+                <p class="evidence-note"><strong>成果の範囲:</strong> 約4,200から約3,000への改善は4人チームの結果です。コンペ全体順位や個人単独の成果としては記載していません。</p>
+            </div>
+        </section>
+
+        <section id="analysis" class="case-section case-section-muted">
+            <div class="detail-container">
+                <p class="section-kicker">02 / ANALYSIS</p>
+                <h2>精度だけでなく、検証の正しさを守る</h2>
+                <div class="feature-grid">
+                    <article class="feature-item"><span class="feature-number">01</span><h3>ベースライン</h3><p>Random Forestなどで基準となる予測を作り、改善前後を比較できる状態から始めました。</p></article>
+                    <article class="feature-item"><span class="feature-number">02</span><h3>天候・曜日</h3><p>試合日の天候や曜日を加え、観客動員との関係を仮説として検証しました。</p></article>
+                    <article class="feature-item"><span class="feature-number">03</span><h3>チーム・会場</h3><p>チームやスタジアムごとの過去平均動員数を特徴量として検討しました。</p></article>
+                    <article class="feature-item"><span class="feature-number">04</span><h3>リーク対策</h3><p>過去平均は学習データだけから算出し、評価対象の情報が混ざらないようにしました。</p></article>
+                    <article class="feature-item"><span class="feature-number">05</span><h3>同条件で比較</h3><p>データ分割とRMSEをそろえ、特徴量やモデルの差を比較できるようにしました。</p></article>
+                    <article class="feature-item"><span class="feature-number">06</span><h3>改善の記録</h3><p>仮説、検証内容、結果をチームへ共有し、次に試す内容を判断しました。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section architecture-section" aria-labelledby="process-title">
+            <div class="detail-container">
+                <p class="section-kicker section-kicker-light">03 / PROCESS</p>
+                <h2 id="process-title">分析の進め方</h2>
+                <div class="architecture-flow" aria-label="ベースライン、仮説、特徴量作成、同条件での比較、提出の順に進めた分析工程">
+                    <div class="architecture-node"><span class="architecture-label">BASELINE</span><strong>基準を作る</strong><small>RMSEを確認</small></div><span class="architecture-arrow" aria-hidden="true">→</span><div class="architecture-node architecture-node-accent"><span class="architecture-label">FEATURE</span><strong>仮説を試す</strong><small>天候・曜日・過去平均</small></div><span class="architecture-arrow" aria-hidden="true">→</span><div class="architecture-stack"><div class="architecture-node"><span class="architecture-label">COMPARE</span><strong>モデル比較</strong><small>条件を統一</small></div><div class="architecture-node"><span class="architecture-label">SUBMIT</span><strong>本番提出</strong><small>Private LB</small></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="case-section">
+            <div class="detail-container">
+                <p class="section-kicker">04 / TEAM</p>
+                <h2>4人で判断を前へ進める</h2>
+                <div class="decision-list">
+                    <article><h3>作業を見える化する</h3><p>Notionデータベースで担当、必要日数、進行状況を管理し、遅れている作業を早めに把握しました。</p></article>
+                    <article><h3>意見を計測へ変える</h3><p>どの特徴量やモデルが良いかは、同じ評価条件で試したRMSEを共有して判断しました。</p></article>
+                    <article><h3>役割を越えて支える</h3><p>タスクを分解し、詰まっている箇所は結果や手順を共有しながらチーム全体で改善しました。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-cta"><div class="detail-container project-cta-inner"><div><h2>ほかの制作物を見る</h2><p>実務の業務改善、機械学習Webアプリ、ローコード開発の事例も掲載しています。</p></div><div class="detail-actions"><a class="detail-button detail-button-on-dark" href="../../index.html#projects">Worksへ戻る</a></div></div></section>
+    </main>
+
+    <footer class="detail-footer"><div class="detail-container"><p>&copy; 2026 川添 偉生 (Takeru Kawazoe). All Rights Reserved.</p></div></footer>
+    <script src="../../motion.js?v=3"></script>
+</body>
+</html>
